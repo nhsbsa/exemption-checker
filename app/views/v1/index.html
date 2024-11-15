@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+    <!-- NOT NEEDED -->
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+    <h1 class="nhsuk-heading-xl">{{ serviceName }}</h1>
+
+    <p class="nhsuk-body">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+    {{ button({
+            text: 'Start now',
+            href: 'date-of-birth'
+        }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
