@@ -1,37 +1,66 @@
 {% extends 'layout.html' %}
 
 {% block pageTitle %}
-  {{ serviceName }}
+{{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
-    
-    {{ backLink({
-        text: 'Go back',
-        href: 'javascript:history.back();'
-    }) }}
+
+{{ backLink({
+text: 'Go back',
+href: 'javascript:history.back();'
+}) }}
 
 {% endblock %}
 
 
 {% block content %}
 
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
 
     <form action="name" method="post" novalidate>
 
-    
+      {% from 'fieldset/macro.njk' import fieldset %}
+      {% from "input/macro.njk" import input %}
 
-        {{ button({
-            text: 'Continue'
-        }) }}
+      {% call fieldset({
+      legend: {
+      text: "What is your name?",
+      classes: "nhsuk-fieldset__legend--l",
+      isPageHeading: true
+      }
+      }) %}
+
+      {{ input({
+      label: {
+      text: "First name"
+      },
+      classes: "nhsuk-u-width-two-thirds",
+      id: "first-name",
+      name: "first-name"
+      }) }}
+
+      {{ input({
+      label: {
+      text: "Last name"
+      },
+      classes: "nhsuk-u-width-two-thirds",
+      id: "last-name",
+      name: "last-name"
+      }) }}
+
+      {% endcall %}
+
+      {{ button({
+      text: 'Continue'
+      }) }}
 
     </form>
 
-   
 
-    </div>
+
   </div>
+</div>
 
 {% endblock %}

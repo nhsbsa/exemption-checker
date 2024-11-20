@@ -1,29 +1,161 @@
 {% extends 'layout.html' %}
 
 {% block pageTitle %}
-  {{ serviceName }}
+{{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
-    
-    {{ backLink({
-        text: 'Go back',
-        href: 'javascript:history.back();'
-    }) }}
+
+{{ backLink({
+text: 'Go back',
+href: 'javascript:history.back();'
+}) }}
 
 {% endblock %}
 
 
 {% block content %}
 
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
 
-    <h1 class="nhsuk-heading-l">We cannot match you to our records</h1>
-    <p class="nhsuk-body">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-   
+    <h1 class="nhsuk-heading-xl">
+      We cannot match you to our records
+    </h1>
+    <h2 class="nhsuk-heading-m">The details you gave:</h2>
+    <form class="form">
+      <dl class="nhsuk-summary-list">
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Jamie
+            Bradford
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="/name-exempt">Change <span class="nhsuk-u-visually-hidden">full
+                name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Date of birth
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            11 June 1985
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/date-of-birth">Change <span class="nhsuk-u-visually-hidden">date of
+                birth</span>
+            </a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Postcode
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            DH3 1GL
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="/postcode">Change <span class="nhsuk-u-visually-hidden">postcode</span></a>
+          </dd>
+        </div>
+      </dl>
+    </form>
+    <h2 class="nhsuk-heading-l">We cannot find you for one of these reasons:</h2>
 
+    <details class="nhsuk-details">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">The details you gave do not match our records</span>
+      </summary>
+      <div class="nhsuk-details__text" id="reason-1">
+        <p class="nhsuk-body">If you have recently moved or changed your name, we may have your old information.
+          Change
+          your details then try again.</p>
+        <p class="nhsuk-body">If you've never had an exemption from paying NHS costs, we won't have your details.
+        </p>
+      </div>
+    </details>
+
+    <details class="nhsuk-details">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">You've recently become entitled to help with NHS costs </span>
+      </summary>
+      <div class="nhsuk-details__text" id="reason-2">
+        <p class="nhsuk-body">We may not have all your details yet. Our records can take up to 6 weeks to update.
+        </p>
+      </div>
+    </details>
+
+    <details class="nhsuk-details">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">You're no longer entitled to help with NHS costs</span>
+      </summary>
+      <div class="nhsuk-details__text" id="reason-3">
+        <p class="nhsuk-body">Your eligibility for free NHS treatment may have ended.</p>
+      </div>
+    </details>
+
+    <details class="nhsuk-details">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">Your prescription prepayment certificate (PPC) has expired</span>
+      </summary>
+      <div class="nhsuk-details__text" id="reason-4">
+        <p class="nhsuk-body">You can <a class="nhsuk-link"
+            href="https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/nhs-prescription-prepayment-certificate-ppc"
+            target="_blank" rel="noopener">buy another PPC online.<span class="nhsuk-u-visually-hidden">(Opens in a new
+              tab)</span></a></p>
+        <p class="nhsuk-body">A PPC lets you get as many NHS prescriptions as you need for a set price. If you regularly
+          pay prescription charges, a PPC could save you money.</p>
+      </div>
+    </details>
+
+    <details class="nhsuk-details">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">You have a hormone replacement therapy prescription prepayment
+          certificate (HRT PPC)</span>
+      </summary>
+      <div class="nhsuk-details__text" id="reason-5">
+        <p class="nhsuk-body">Our NHS exemption checker service cannot currently check for an HRT PPC exemption. We aim
+          to change this in the future.</p>
+      </div>
+    </details>
+
+    <h2 class="nhsuk-heading-m">Check if you should be entitled</h2>
+    <p class="nhsuk-body">Answer a few more questions to check if you could get help to pay for prescriptions and other
+      NHS costs.</p>
+    <div class="nhsuk-form-group">
+      <a class="nhsuk-button" id="eligibility-checker-page-link"
+        href="https://check-for-help-paying-nhs-costs.nhsbsa.nhs.uk/start" role="button" target="_blank"
+        rel="noopener">Check now<span class="nhsuk-u-visually-hidden"> (Opens in a new tab)</span></a>
     </div>
+
+    <div class="nhsuk-form-group">
+      <h3 class="nhsuk-heading-s">Help us improve this service</h3>
+      <p class="nhsuk-body"><a class="nhsuk-link" href="https://online1.snapsurveys.com/check-my-nhs-exemption-feedback"
+          id="finished-survey" target="_blank" rel="noopener">What did you think of this service?<span
+            class="nhsuk-u-visually-hidden"> (Opens in a new tab)</span></a> (Takes 30 seconds)</p>
+    </div>
+
+
+    <div class="nhsuk-action-link no-print">
+      <a class="nhsuk-action-link__link" id="search-again" href="/v1/start">
+        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+          aria-hidden="true">
+          <path d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+          </path>
+        </svg>
+        <span class="nhsuk-action-link__text">Check again</span>
+      </a>
+    </div>
+
+
   </div>
+</div>
 
 {% endblock %}
