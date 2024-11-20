@@ -1,29 +1,89 @@
 {% extends 'layout.html' %}
 
 {% block pageTitle %}
-  {{ serviceName }}
+{{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
-    
-    {{ backLink({
-        text: 'Go back',
-        href: 'javascript:history.back();'
-    }) }}
+
+{{ backLink({
+text: 'Go back',
+href: 'javascript:history.back();'
+}) }}
 
 {% endblock %}
 
 
 {% block content %}
 
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
-
-    <h1 class="nhsuk-heading-l">You currently have an NHS exemption</h1>
-    <p class="nhsuk-body">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-   
-
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <div class="done-panel">
+      <h1 class="nhsuk-heading-xl done-panel nhsuk-u-margin-top-0">
+        You currently have an NHS exemption
+      </h1>
+      <h2 class="nhsuk-heading-m">
+        Expires on 17 December 2025
+      </h2>
     </div>
+
+
+    {% from "summary-list/macro.njk" import summaryList %}
+
+    {{ summaryList({
+    rows: [ { key: {
+    text: "Date of birth"
+    },
+    value: {
+    text: " Karen Francis"
+    }
+
+    },
+
+    {
+    key: {
+    text: "Date of birth"
+    },
+    value: {
+    text: "15 March 1984"
+    }
+    },
+
+    {
+    key: {
+    text: "Exempt from paying"
+    },
+    value: {
+    html: "
+    <ul>
+      <li>NHS prescriptions</li>
+      <li>NHS dental check-ups and treatment</li>
+    </ul>"
+    }
+    },
+
+    {
+    key: {
+    text: "End date"
+    },
+    value: {
+    text: "17th December 2025"
+    }
+    },
+
+    {
+    key: {
+    text: "Todays date"
+    },
+    value: {
+    text: "20 November 2024"
+    }
+    }
+    ]
+    }) }}
+
+
   </div>
+</div>
 
 {% endblock %}
