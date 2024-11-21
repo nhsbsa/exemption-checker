@@ -1,5 +1,6 @@
 module.exports = {
 
-    debug: 'false'
+    debug: 'false',
+    userRecordFound: 'true'
 
 }

@@ -1,6 +1,5 @@
 // External dependencies
 const express = require('express');
-
 const router = express.Router();
 
 //
@@ -29,8 +28,7 @@ router.post(/name/, function (req, res) {
 //
 router.post(/postcode/, function (req, res) {
 
-    const choice = Math.round(Math.random()); // Either 0 or 1...
-    const nextPage = ( choice === 0 ) ? 'record-found' : 'no-record-found';
+    const nextPage = ( req.session.data.userRecordFound === 'true' || req.session.data.userRecordFound === true ) ? 'record-found' : 'no-record-found';
 
     res.redirect(nextPage);
     

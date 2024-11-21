@@ -34,7 +34,7 @@ href: 'javascript:history.back();'
     text: "Name"
     },
     value: {
-    text: "Karen Francis"
+    text: data.firstName + ' ' + data.lastName
     },
     actions: {
     items: [
@@ -99,47 +99,35 @@ href: 'javascript:history.back();'
     }) }}
     <!-- ----------- -->
     {{ details({
-    text: "You've recently become entitled to help with NHS costs",
-    HTML: "
-    <p>We may not have all your details yet. Our records can take up to 6 weeks to update.</p>
-    "
+    text: 'You\'ve recently become entitled to help with NHS costs',
+    HTML: '<p>We may not have all your details yet. Our records can take up to 6 weeks to update.</p>'
     }) }}
     <!-- ----------- -->
     {{ details({
-    text: "You're no longer entitled to help with NHS costs",
-    HTML: "
-    <p>Your eligibility for free NHS treatment may have ended.</p>
-    "
+      text: 'You\'re no longer entitled to help with NHS costs',
+      HTML: '<p>Your eligibility for free NHS treatment may have ended.</p>'
     }) }}
+
+    <!-- ----------- -->
+    
+    {{ details({
+      text: 'Your prescription prepayment certificate (PPC) has expired',
+      HTML: '<p>You can <a target="_blank" class="nhsuk-link" href="https://buy-prescription-prepayment-certificate.nhsbsa.nhs.uk/start">buy another PPC online.</a> <span>(Opens in a new tab)</span></p><p>A PPC lets you get as many NHS prescriptions as you need for a set price. If you regularly pay prescription charges, a PPC could save you money.</p>'
+    }) }}
+
+
     <!-- ----------- -->
     {{ details({
-    text: "Your prescription prepayment certificate (PPC) has expired",
-    HTML: "
-    <p>You can <a class=\"nhsuk-link\">buy another PPC online.</a><span>(Opens in a new
-        tab)</span>
-    </p>
-    <p>A PPC lets you get as many NHS prescriptions as you need for a set price. If you regularly
-      pay prescription charges, a PPC could save you money.</p>
-    "
-    }) }}
-    <!-- ----------- -->
-    {{ details({
-    text: "You have a hormone replacement therapy prescription prepayment
-    certificate (HRT PPC)",
-    HTML: "
-    <p>Our NHS exemption checker service cannot currently check for an HRT PPC exemption. We aim
-      to change this in the future.
-    </p>
-    "
+      text: 'You have a hormone replacement therapy prescription prepayment certificate (HRT PPC)',
+      HTML: '<p>Our NHS exemption checker service cannot currently check for an HRT PPC exemption. We aim to change this in the future.</p>'
     }) }}
 
     <h2 class="nhsuk-heading-m">Check if you should be entitled</h2>
-    <p class="nhsuk-body">Answer a few more questions to check if you could get help to pay for prescriptions and other
-      NHS costs.</p>
+    <p class="nhsuk-body">Answer a few more questions to check if you could get help to pay for prescriptions and other NHS costs.</p>
 
     {{ button({
-    text: "Check now",
-    href: '/v1/start'
+      text: 'Check now',
+      href: '/v1/start'
     }) }}
 
     <!-- <span class="nhsuk-u-visually-hidden"> (Opens in a new tab)</span> -->
