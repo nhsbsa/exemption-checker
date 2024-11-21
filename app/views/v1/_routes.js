@@ -4,6 +4,13 @@ const express = require('express');
 const router = express.Router();
 
 //
+// INDEX
+//
+router.get( /index/, function (req, res) {
+    res.redirect('start');
+});
+
+//
 // DATE OF BIRTH
 //
 router.post(/date-of-birth/, function (req, res) {
