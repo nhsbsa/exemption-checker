@@ -1,16 +1,14 @@
 {% extends 'layout.html' %}
 
 {% block pageTitle %}
-{{ serviceName }}
+    {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
-
-{{ backLink({
-text: 'Go back',
-href: 'javascript:history.back();'
-}) }}
-
+    {{ backLink({
+        text: 'Go back',
+        href: 'javascript:history.back();'
+    }) }}
 {% endblock %}
 
 
@@ -25,35 +23,37 @@ href: 'javascript:history.back();'
             id: 'dateOfBirth',
             namePrefix: 'dateOfBirth',
             fieldset: {
-            legend: {
-            text: 'What is your date of birth?',
-            classes: 'nhsuk-label--l',
-            isPageHeading: true
-            }
+                legend: {
+                    text: 'What is your date of birth?',
+                    classes: 'nhsuk-label--l',
+                    isPageHeading: true
+                }
             },
             hint: {
-            text: 'For example, 15 3 1984'
+                text: 'For example, 15 3 1984'
             },
             items: [
             {
-            name: 'day',
-            classes: 'nhsuk-input--width-2',
-            value: data.dateOfBirth.day
+                name: 'day',
+                classes: 'nhsuk-input--width-2',
+                value: data.dateOfBirth.day
             },
             {
-            name: 'month',
-            classes: 'nhsuk-input--width-2'
+                name: 'month',
+                classes: 'nhsuk-input--width-2',
+                value: data.dateOfBirth.month
             },
             {
-            name: 'year',
-            classes: 'nhsuk-input--width-4'
+                name: 'year',
+                classes: 'nhsuk-input--width-4',
+                value: data.dateOfBirth.year
             }
             ]
             }) }}
 
 
             {{ button({
-            text: 'Continue'
+                text: 'Continue'
             }) }}
 
         </form>

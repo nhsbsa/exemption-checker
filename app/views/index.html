@@ -33,54 +33,58 @@ NHS.UK prototype kit
       <span class="nhsuk-caption-xl nhsuk-caption--bottom">Version 1.0</span>
     </h1>
 
-    {% from 'tabs/macro.njk' import tabs %}
-    {% from 'tables/macro.njk' import table %}
-
-    {% from 'tabs/macro.njk' import tabs %}
-    {% from 'tables/macro.njk' import table %}
-
-
-    {% from 'tabs/macro.njk' import tabs %}
-    {% from 'tables/macro.njk' import table %}
-
 
     {% set exemptionCheckerPrototype %}
 
-    {{ button({
-    text: "Latest prototype v1.0",
-    href: '/v1/start'
-    }) }}
+      <!-- EXEMPTION CHECKER TAB -->
 
-    {% endset -%} {% set researchPrototype %}
+      <p>This prototype is a recreation of the current live product. It will form the basis of future iteration work.</p>
 
-    {% from 'button/macro.njk' import button %}
+      {{ button({
+        text: 'Latest prototype v1.0',
+        href: '/v1/start'
+      }) }}
 
-    {{ button({
-    text: "Save and continue"
-    }) }}
+      <p class="nhsuk-body"><a href="/v1/start?userRecordFound=false">Latest prototype v1.0 - "No record found" route</a></p>
+
+    {% endset -%} 
+    
+    
+    {% set researchPrototype %}
+
+      <!-- RESEARCH PROTOTYPE TAB -->
+
+      {{ button({
+        text: 'Save and continue'
+      }) }}
+
     {% endset -%}
 
     {{ tabs({
     items: [
     {
-    label: "Exemption checker prototype",
-    id: "exemptionCheckerPrototype",
-    panel: {
-    html: exemptionCheckerPrototype
-    }
-    },
-
-
-    {
-    label: "Research Prototype",
-    id: "researchPrototype",
-    panel: {
-    html: researchPrototype
-    }
+      label: 'Exemption checker prototype',
+      id: 'exemptionCheckerPrototype',
+      panel: {
+        html: exemptionCheckerPrototype
+      }
     }
     ]
     }) }}
-    <!-- End of content -->
+
+    <!--
+
+    ,
+    {
+      label: 'Research prototype',
+      id: 'researchPrototype',
+      panel: {
+        html: researchPrototype
+      }
+    }
+
+    -->
+
 
   </div>
 </div>

@@ -1,70 +1,62 @@
 {% extends 'layout.html' %}
 
 {% block pageTitle %}
-{{ serviceName }}
+  {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
-
-{{ backLink({
-text: 'Go back',
-href: 'javascript:history.back();'
-}) }}
-
+  {{ backLink({
+    text: 'Go back',
+    href: 'javascript:history.back();'
+  }) }}
 {% endblock %}
-
 
 {% block content %}
 
-<div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-two-thirds">
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
 
-    <form action="name" method="post" novalidate>
+      <form action="name" method="post" novalidate>
 
-      {% from 'fieldset/macro.njk' import fieldset %}
-      {% from "input/macro.njk" import input %}
-
-      {% call fieldset({
-      legend: {
-      text: "What is your name?",
-      classes: "nhsuk-fieldset__legend--l",
-      isPageHeading: true
-      }
+        {% call fieldset({
+        legend: {
+          text: 'What is your name?',
+          classes: 'nhsuk-fieldset__legend--l',
+          isPageHeading: true
+        }
       }) %}
 
-      {{ input({
+        {{ input({
         label: {
-        text: "First name"
+          text: 'First name'
         },
-        classes: "nhsuk-u-width-two-thirds",
+        classes: 'nhsuk-u-width-two-thirds',
         id: 'firstName',
         name: 'firstName',
         value: data.firstName
       }) }}
 
-      {{ input({
+        {{ input({
         label: {
-        text: "Last name"
+          text: 'Last name'
         },
-        classes: "nhsuk-u-width-two-thirds",
+        classes: 'nhsuk-u-width-two-thirds',
         id: 'lastName',
         name: 'lastName',
         value: data.lastName
       }) }}
 
-      {% endcall %}
+        {% endcall %}
 
-      {{ button({
-      text: 'Continue'
-      }) }}
+        {{ button({
+          text: 'Continue'
+       }) }}
 
-    </form>
+      </form>
 
-
-
+    </div>
   </div>
-</div>
 
-{{ data | debugData | safe }}
+  {{ data | debugData | safe }}
 
 {% endblock %}

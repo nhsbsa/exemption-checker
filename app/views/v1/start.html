@@ -1,13 +1,11 @@
 {% extends 'layout.html' %}
 
 {% block pageTitle %}
-{{ serviceName }}
+  {{ serviceName }}
 {% endblock %}
 
-{% block beforeContent %}
-<!-- NOT NEEDED -->
-{% endblock %}
-
+{# block beforeContent #}
+{# endblock #}
 
 {% block content %}
 
@@ -15,9 +13,7 @@
   <div class="nhsuk-grid-column-two-thirds">
 
     <h1 class="nhsuk-heading-xl">{{ serviceName }}</h1>
-
-    <p class="nhsuk-body-l">An NHS exemption certificate helps you to pay for your NHS costs, such as
-      prescriptions or dental treatment.</p>
+    <p class="nhsuk-body-l">An NHS exemption certificate helps you to pay for your NHS costs, such as prescriptions or dental treatment.</p>
 
     <h1 class="nhsuk-heading-xl">What you can check</h1>
 
@@ -65,10 +61,9 @@
       </li>
     </ul>
 
-
     {{ button({
-    text: 'Start now',
-    href: 'date-of-birth'
+      text: 'Start now',
+      href: 'date-of-birth'
     }) }}
 
   </div>

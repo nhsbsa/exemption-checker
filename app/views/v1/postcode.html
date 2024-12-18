@@ -1,16 +1,14 @@
 {% extends 'layout.html' %}
 
 {% block pageTitle %}
-{{ serviceName }}
+  {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
-
-{{ backLink({
-text: 'Go back',
-href: 'javascript:history.back();'
-}) }}
-
+  {{ backLink({
+    text: 'Go back',
+    href: 'javascript:history.back();'
+  }) }}
 {% endblock %}
 
 
@@ -20,32 +18,29 @@ href: 'javascript:history.back();'
   <div class="nhsuk-grid-column-two-thirds">
 
     <form action="postcode" method="post" novalidate>
-      {% from 'fieldset/macro.njk' import fieldset %}
-      {% from "input/macro.njk" import input %}
 
       {% call fieldset({
       legend: {
-      text: "What is your postcode?",
-      classes: "nhsuk-fieldset__legend--l",
-      isPageHeading: true
+        text: 'What is your postcode?',
+        classes: 'nhsuk-fieldset__legend--l',
+        isPageHeading: true
       }
       }) %}
 
-
       {{ input({
       label: {
-      text: "Postcode"
+        text: 'Postcode'
       },
-      classes: "nhsuk-input--width-10",
-      id: "addressPostcode",
-      name: "addressPostcode"
+      classes: 'nhsuk-input--width-10',
+      id: 'addressPostcode',
+      name: 'addressPostcode',
+      value: data.addressPostcode
       }) }}
 
       {% endcall %}
 
-
       {{ button({
-      text: 'Continue'
+        text: 'Continue'
       }) }}
 
     </form>

@@ -8,21 +8,81 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
   const filters = {};
 
 
-filters.debugData = function( data ){
+  //
+  // PROCESS NAME FUNCTION
+  //
+  filters.processName = function( ) {
 
-  let debug = ( data.debug === true || data.debug === 'true' ) ? true : false;
-  let html = '';
+    const firstName = ( this.ctx.data.firstName ) ? this.ctx.data.firstName.trim() : 'Sarah';
+    const lastName = ( this.ctx.data.lastName ) ? this.ctx.data.lastName.trim() : 'Smith';
 
-  if( debug ){
-    html = '<div class="nhsuk-grid-row"><div class="nhsuk-grid-column-two-thirds">';
-    html += '<div class="nhsuk-form-group"><textarea class="nhsuk-textarea" rows="5" disabled>' + JSON.stringify(data) + '</textarea></div>';
-    html += '</div></div>';
-  }
+    return firstName + ' ' + lastName;
 
-  return html;
+  };
+
+  //
+  // PROCESS DATE OF BIRTH FUNCTION
+  //
+  filters.processDateOfBirth = function(){
+
+    const day = ( this.ctx.data.dateOfBirth && !Number.isNaN( parseInt( this.ctx.data.dateOfBirth.day ) ) ) ? parseInt( this.ctx.data.dateOfBirth.day ) : 28;
+    const month = ( this.ctx.data.dateOfBirth && !Number.isNaN( parseInt( this.ctx.data.dateOfBirth.month ) ) ) ? parseInt( this.ctx.data.dateOfBirth.month ) : 10;
+    const year = ( this.ctx.data.dateOfBirth && !Number.isNaN( parseInt( this.ctx.data.dateOfBirth.year ) ) ) ? parseInt( this.ctx.data.dateOfBirth.year ) : 1984;
+
+    let today = new Date( year, month, day );
+
+    return today.toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+    
+
+  };
+
+  //
+  // DEBUG DATA FUNCTION
+  //
+  filters.debugData = function( data ){
+
+    let debug = ( data.debug === true || data.debug === 'true' ) ? true : false;
+    let html = '';
+
+    if( debug ){
+      html = '<div class="nhsuk-grid-row"><div class="nhsuk-grid-column-two-thirds">';
+      html += '<div class="nhsuk-form-group"><textarea class="nhsuk-textarea" rows="5" disabled>' + JSON.stringify(data) + '</textarea></div>';
+      html += '</div></div>';
+    }
+
+    return html;
 
 
-};
+  };
+
+
+  //
+  // ALTER DATE BY NUMBER OF MONTHS FUNCTION
+  //
+  filters.alterTodaysDateByNumberOfMonths = function( monthOffset ){
+
+    let today = new Date();
+    var d = today.getDate();
+    today.setMonth(today.getMonth() + monthOffset);
+    if (today.getDate() !== d) {
+      today.setDate(0);
+    }
+
+    return today.toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+
+  };
+
+
+
+
 
   /* ------------------------------------------------------------------
     add your methods to the filters obj below this comment block:

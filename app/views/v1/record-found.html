@@ -1,85 +1,108 @@
 {% extends 'layout.html' %}
 
 {% block pageTitle %}
-{{ serviceName }}
+  {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
-
-{{ backLink({
-text: 'Go back',
-href: 'javascript:history.back();'
-}) }}
-
+  {{ backLink({
+    text: 'Go back',
+    href: 'javascript:history.back();'
+  }) }}
 {% endblock %}
-
 
 {% block content %}
 
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
+
     <div class="done-panel">
       <h1 class="nhsuk-heading-xl done-panel nhsuk-u-margin-top-0">
         You currently have an NHS exemption
       </h1>
-      <h2 class="nhsuk-heading-m">
-        Expires on 17 December 2025
-      </h2>
+      <p class="nhsuk-heading-m">
+        Expires on {{ 6 | alterTodaysDateByNumberOfMonths }}
+      </p>
     </div>
 
-
-    {% from "summary-list/macro.njk" import summaryList %}
-
     {{ summaryList({
-    rows: [ { key: {
-    text: "Date of birth"
+    rows: [ 
+    { 
+      key: {
+        text: 'Full name'
+      },
+      value: {
+        html: '' | processName()
+      }
     },
-    value: {
-    text: " Karen Francis"
-    }
-
-    },
-
     {
-    key: {
-    text: "Date of birth"
+      key: {
+        text: 'Date of birth'
+      },
+      value: {
+        text: '' | processDateOfBirth()
+      }
     },
-    value: {
-    text: "15 March 1984"
-    }
-    },
-
     {
-    key: {
-    text: "Exempt from paying"
+      key: {
+        text: 'Exempt from paying'
+      },
+      value: {
+        html: '<ul class="nhsuk-list"><li>NHS prescriptions</li><li>NHS dental check-ups and treatment</li></ul>'
+      }
     },
-    value: {
-    html: "
-    <ul>
-      <li>NHS prescriptions</li>
-      <li>NHS dental check-ups and treatment</li>
-    </ul>"
-    }
-    },
-
     {
-    key: {
-    text: "End date"
+      key: {
+        text: 'End date'
+      },
+      value: {
+        text: 6 | alterTodaysDateByNumberOfMonths
+      }
     },
-    value: {
-    text: "17th December 2025"
-    }
-    },
-
     {
-    key: {
-    text: "Todays date"
-    },
-    value: {
-    text: "20 November 2024"
-    }
+      key: {
+        text: 'Today\'s date'
+      },
+      value: {
+        text: 0 | alterTodaysDateByNumberOfMonths
+      }
     }
     ]
+    }) }}
+
+
+
+    <h2 class="nhsuk-heading-l">How to get your help</h2>
+
+    <h3 class="nhsuk-heading-m">Collecting prescriptions</h3>
+    <p class="nhsuk-body">Pharmacy staff will ask for your exemption details. If you do not have them with you, your pharmacist should tick 'Evidence not seen' on the prescription. They will not charge you.</p>
+    <p class="nhsuk-body">You can show this page as proof today.</p>
+
+    <h3 class="nhsuk-heading-m">Dental check-ups and treatment</h3>
+    <p class="nhsuk-body">At your dental practice you'll be given a form to fill out.</p>
+    <p class="nhsuk-body">Put a cross (X) in the relevant box and write your certificate number on the form if you:</p>
+
+    <ul class="nhsuk-list nhsuk-list--bullet">
+      <li>have a valid HC2 certificate</li>
+      <li>have a valid tax credit exemption certificate</li>
+      <li>are pregnant</li>
+      <li>have had a baby in the last 12 months</li>
+    </ul>
+
+    <p class="nhsuk-body">Your dentist may ask to see proof of your entitlement.</p>
+    <p class="nhsuk-body">You can show this page as proof today.</p>
+    <p class="nhsuk-body">Find out what <a href="#">help you can get for dental treatment if you have a maternity exemption certificate</a></p>
+
+    <p class="nhsuk-body"><a href="#">Print this</a></p>
+
+    <h2 class="nhsuk-heading-l">Help us improve this service</h2>
+    <p class="nhsuk-body"><a href="https://online1.snapsurveys.com/check-my-nhs-exemption-feedback">What did you think of this service?</a> (Takes 30 seconds)</p>
+
+    <hr class="nhsuk-section-break" />
+
+    {{ actionLink({
+      text: 'Check again',
+      href: 'start'
     }) }}
 
 
