@@ -25,12 +25,11 @@ NHS.UK prototype kit
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
 <div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-full-width">
+  <div class="nhsuk-grid-column-two-thirds">
 
     <!-- Change the page title here -->
     <h1>
       Exemption Checker
-      <span class="nhsuk-caption-xl nhsuk-caption--bottom">Version 1.0</span>
     </h1>
 
 
@@ -71,6 +70,61 @@ NHS.UK prototype kit
     }
     ]
     }) }}
+
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">Exemption checker v1.0 page list</span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <h3>Cookies pages</h3>
+        <table class="nhsuk-table">
+          <thead class="nhsuk-table__head">
+            <tr>
+              <th scope="col">Description</th>
+              <th scope="col">Prototype Link</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Start page with cookies</td>
+              <td class="nhsuk-table__cell"><a href="v1/cookies/start-cookies">Cookies banner on start page</a></td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Choose cookies</td>
+              <td class="nhsuk-table__cell"><a href="v1/cookies/choose-cookies">Choose cookies</a></td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Cookie settings saved</td>
+              <td class="nhsuk-table__cell"><a href="v1/cookies/cookies-saved">Your cookie settings have been saved</a></td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">NHSBSA cookies</td>
+              <td class="nhsuk-table__cell"><a href="v1/cookies/nhsbsa-cookies">Cookies on the NHSBSA website</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Error pages</h3>
+        <table class="nhsuk-table">
+          <thead class="nhsuk-table__head">
+            <tr>
+              <th scope="col">Description</th>
+              <th scope="col">Prototype Link</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">Choose cookies error</td>
+              <td class="nhsuk-table__cell"><a href="v1/cookies/choose-cookies-error">Choose cookies - No radio selected</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </details>
+    
+    
 
     <!--
 

@@ -1,0 +1,120 @@
+{% extends 'layout.html' %}
+
+<!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+{% block headCSS %}
+  <link href="/css/main.css" rel="stylesheet">
+{% endblock %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Buy an NHS Prescription Prepayment Certificate (PPC)
+{% endblock %}
+
+<!-- Header goes inside the header block -->
+<!-- More info and code for the header can be found at https://service-manual.nhs.uk/design-system/components/header -->
+{% block header %}
+
+<div id="nhsuk-cookie-banner" data-nosnippet="true">
+  <div class="nhsuk-cookie-banner" id="cookiebanner">
+    <div class="nhsuk-width-container"> 
+      <br>
+        <h2>Cookies on the NHS website</h2> 
+        <p>We've put some small files called cookies on your device to make our site work.</p>
+        <p>We'd also like to use analytics cookies. These send information about how our site is used to services called Adobe Analytics, Hotjar and Google Analytics. We use this information to improve our site.</p>
+        <p>Let us know if this is OK. We'll use a cookie to save your choice. You can <a id="nhsuk-cookie-banner__link" href="nhsbsa-cookies" tabindex="1">read more about our cookies</a> before you choose.</p>
+        <form action="cookies-decision">
+            <button class="nhsuk-button" href="cookies/cookies-decision" tabindex="2">I'm OK with analytics cookies</button>&nbsp;&nbsp;&nbsp;
+        
+            <button class="nhsuk-button" href="#" tabindex="3">Do not use analytics cookies</button>
+          </form>
+    </div>
+  </div>
+
+  <div class="nhsuk-success-banner" id="nhsuk-cookie-confirmation-banner" style="display:none;">
+    <div class="nhsuk-width-container">
+      <p id="nhsuk-success-banner__message">You can change your cookie settings at any time using our <a href="/our-policies/cookies-policy/">cookies page</a>.</p>
+    </div>
+  </div>
+</div>
+
+  {{ header({
+    "service": {
+        "name": "Buy an NHS Prescription Prepayment Certificate (PPC)",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+    <!-- Phase banner -->
+    <div class="app-phase-banner">
+        <div class="nhsuk-width-container app-phase-banner__container">
+          <p class="app-phase-banner__content">
+            <strong class="nhsuk-tag app-phase-banner__tag">
+              beta
+            </strong>
+            <span class="app-phase-banner__text">
+              This is a new service – your <a class="govuk-link" href="https://online1.snapsurveys.com/PPC_beta_banner_feedback">feedback (opens in a new tab)</a> will help us to improve it.
+            </span>
+          </p>
+        </div>
+      </div>
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1 class="nhsuk-heading-xl">Buy an NHS Prescription Prepayment Certificate (PPC)</h1>
+
+    {{ warningCallout({
+      heading: 'Important information',
+      HTML: '<p>If you pay for NHS prescribed hormone replacement therapy (HRT) medicine, then an <a href="https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/nhs-hormone-replacement-therapy-prescription-prepayment-certificate-hrt-ppc" rel="noopener">HRT PPC could save you more money than a PPC</a>.</p>'
+    }) }}
+
+    <p class="nhsuk-body-l">A PPC could save you money if you pay for your NHS prescriptions.</p>
+    <p class="nhsuk-body">The certificate covers all your NHS prescriptions for a set price.</p>
+    <p class="nhsuk-body">You will save money if you need more than 3 items in 3 months, or 11 items in 12 months.</p>
+    <p class="nhsuk-body">The prescription charge in England is {{ data.NHSPrescriptionCost }} per item. A PPC costs:</p>
+
+    <ul class="nhsuk-list nhsuk-list--bullet">
+      <li>{{ data.PPC3MonthsCost }} for 3 months</li>
+      <li>{{ data.PPC12MonthsCost }} for 12 months (which you can choose to pay in 10 monthly Direct Debit instalments)</li>
+    </ul>
+
+    <h2 class="nhsuk-heading-l">Before you start</h2>
+    <p class="nhsuk-body">Check if you're entitled to free NHS prescriptions and other help with health costs using our eligibility checker.</p>
+
+    {{ actionLink({
+      text: "Find out if you're entitled to free NHS prescriptions",
+      href: 'https://www.nhsbsa.nhs.uk/check-if-youre-eligible-help'
+    }) }}
+    
+    <p class="nhsuk-body">You'll need a valid debit or credit card to pay for a PPC.</p>
+
+    {{ button({
+      text: 'Buy now',
+      href: '' 
+    }) }}
+
+    <p class="nhsuk-body">If you are applying on behalf of someone else, fill in the application using their details rather than your own.</p>
+    <p class="nhsuk-body">You cannot get a PPC by post using this online service. If you need it by post, you can buy one from some pharmacies.</p>
+  
+  </div>
+</div>
+{% endblock %}
+
