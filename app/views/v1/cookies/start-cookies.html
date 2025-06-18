@@ -7,7 +7,7 @@
 
 <!-- Set the page title -->
 {% block pageTitle %}
-  Buy an NHS Prescription Prepayment Certificate (PPC)
+  {{ serviceName }}
 {% endblock %}
 
 <!-- Header goes inside the header block -->
@@ -39,26 +39,14 @@
 
   {{ header({
     "service": {
-        "name": "Buy an NHS Prescription Prepayment Certificate (PPC)",
+        "name": serviceName,
         "href": "/"
       },
       "showNav": "false",
       "showSearch": "false"
     })
   }}
-    <!-- Phase banner -->
-    <div class="app-phase-banner">
-        <div class="nhsuk-width-container app-phase-banner__container">
-          <p class="app-phase-banner__content">
-            <strong class="nhsuk-tag app-phase-banner__tag">
-              beta
-            </strong>
-            <span class="app-phase-banner__text">
-              This is a new service – your <a class="govuk-link" href="https://online1.snapsurveys.com/PPC_beta_banner_feedback">feedback (opens in a new tab)</a> will help us to improve it.
-            </span>
-          </p>
-        </div>
-      </div>
+
 {% endblock %}
 
 <!-- For adding a breadcrumb -->
@@ -79,42 +67,60 @@
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
 
-    <h1 class="nhsuk-heading-xl">Buy an NHS Prescription Prepayment Certificate (PPC)</h1>
+    <h1 class="nhsuk-heading-xl">{{ serviceName }}</h1>
+    <p class="nhsuk-body-l">An NHS exemption certificate helps you to pay for your NHS costs, such as prescriptions or dental treatment.</p>
 
-    {{ warningCallout({
-      heading: 'Important information',
-      HTML: '<p>If you pay for NHS prescribed hormone replacement therapy (HRT) medicine, then an <a href="https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/nhs-hormone-replacement-therapy-prescription-prepayment-certificate-hrt-ppc" rel="noopener">HRT PPC could save you more money than a PPC</a>.</p>'
-    }) }}
+    <h2 class="nhsuk-heading-l">What you can check</h2>
 
-    <p class="nhsuk-body-l">A PPC could save you money if you pay for your NHS prescriptions.</p>
-    <p class="nhsuk-body">The certificate covers all your NHS prescriptions for a set price.</p>
-    <p class="nhsuk-body">You will save money if you need more than 3 items in 3 months, or 11 items in 12 months.</p>
-    <p class="nhsuk-body">The prescription charge in England is {{ data.NHSPrescriptionCost }} per item. A PPC costs:</p>
+    <p class="nhsuk-body">If you live in England, you can use this service to check if your NHS exemption:</p>
 
     <ul class="nhsuk-list nhsuk-list--bullet">
-      <li>{{ data.PPC3MonthsCost }} for 3 months</li>
-      <li>{{ data.PPC12MonthsCost }} for 12 months (which you can choose to pay in 10 monthly Direct Debit instalments)</li>
+      <li>is still valid or will expire soon</li>
+      <li>entitles you to free NHS prescriptions</li>
+      <li>entitles you to free NHS dental check-ups and treatment</li>
     </ul>
 
-    <h2 class="nhsuk-heading-l">Before you start</h2>
-    <p class="nhsuk-body">Check if you're entitled to free NHS prescriptions and other help with health costs using our eligibility checker.</p>
+    <h3 class="nhsuk-heading-m">Exemptions you can check</h3>
 
-    {{ actionLink({
-      text: "Find out if you're entitled to free NHS prescriptions",
-      href: 'https://www.nhsbsa.nhs.uk/check-if-youre-eligible-help'
-    }) }}
-    
-    <p class="nhsuk-body">You'll need a valid debit or credit card to pay for a PPC.</p>
+    <ul class="nhsuk-list nhsuk-list--bullet">
+      <li> NHS Prescription Prepayment Certificate (PPC)</li>
+      <li>medical exemption certificate</li>
+      <li>maternity exemption certificate</li>
+      <li>HC2 certificate (full help through the NHS Low Income Scheme)</li>
+    </ul>
+
+    <p class="nhsuk-body">This result can only be used as proof today. You'll need to check this service each time you want to use it as proof.</p>
+
+    <h3 class="nhsuk-heading-m">Exemptions you cannot currently check</h3>
+
+    <ul class="nhsuk-list nhsuk-list--bullet">
+      <li>HC3 certificate (partial help through the NHS Low Income Scheme)</li>
+      <li>Hormone Replacement Therapy Prescription Prepayment Certificate (HRT PPC)</li>
+    </ul>
+
+    <p class="nhsuk-body"> <a href="https://www.nhsbsa.nhs.uk/contact-nhs-help-health-costs">Contact us if you think you may have one of these certificates and want to check if it is still valid</a>.</p>
+
+    <p class="nhsuk-body">We cannot check prescription exemption certificates issued by the Ministry of Defence. <a href="https://www.gov.uk/guidance/war-pensioners-other-help-you-may-be-entitled-to#prescription-exemption-certificates">More information on these certificates can be found at GOV.UK</a>.</p>
+
+    <h2 class="nhsuk-heading-l">When you do not need to check</h2>
+
+    <p class="nhsuk-body">You're automatically entitled to free NHS prescriptions and NHS dental treatment if you are:</p>
+
+    <ul class="nhsuk-list nhsuk-list--bullet">
+      <li>under 16</li>
+      <li>16, 17 or 18 and in full time education</li>
+      <li>getting <a class="nhsuk-link" href="https://www.nhsbsa.nhs.uk/check-if-youre-eligible-help/getting-benefits"
+          target="_blank" rel="noopener" aria-label="certain benefits (opens in a new tab)">certain benefits</a> or you're named on the claim as a partner or child
+      </li>
+    </ul>
 
     {{ button({
-      text: 'Buy now',
-      href: '' 
+      text: 'Start now'
     }) }}
 
-    <p class="nhsuk-body">If you are applying on behalf of someone else, fill in the application using their details rather than your own.</p>
-    <p class="nhsuk-body">You cannot get a PPC by post using this online service. If you need it by post, you can buy one from some pharmacies.</p>
-  
   </div>
 </div>
-{% endblock %}
 
+{{ data | debugData | safe }}
+
+{% endblock %}
