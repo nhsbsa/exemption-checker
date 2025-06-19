@@ -1,15 +1,16 @@
-<!-- 
+<!--
   This is the main layout where you can:
-    - change the header and footer 
+    - change the header and footer
     - add custom CSS and JavaScript
 -->
 
-<!-- Extends the layout from /docs/views/template.html -->
-{% extends "template.html" %}
+<!-- Extends the prototype kit template which in turn extends the NHS.UK frontend template -->
+{% extends "prototype-kit-template.njk" %}
 
-<!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
-{% block headCSS %}
+{% block head %}
+  <!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
   <link href="/css/main.css" rel="stylesheet">
+  <script src="/nhsuk-frontend/nhsuk.min.js" defer></script>
 {% endblock %}
 
 <!-- Set the page title -->
@@ -20,19 +21,14 @@
 <!-- Edit the header -->
 <!-- Header code examples can be found at https://service-manual.nhs.uk/design-system/components/header -->
 {% block header %}
-  {{ header(
-    
-    {
+  {{ header({
     "service": {
         "name": serviceName,
         "href": "/"
       },
       "showNav": "false",
       "showSearch": "false"
-    }
-    
-    
-    )
+    })
   }}
 {% endblock %}
 
@@ -46,8 +42,8 @@
         "label": "Home"
       },
       {
-        "URL": "/page-example",
-        "label": "Example page"
+        "URL": "/prototype-admin/reset?returnPage=" + (currentPage | urlencode),
+        "label": "Reset data"
       }
     ]
   })}}

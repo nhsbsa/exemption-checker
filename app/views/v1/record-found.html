@@ -1,14 +1,10 @@
 {% extends 'layout.html' %}
 
-{% block pageTitle %}
-{{ serviceName }}
-{% endblock %}
-
 {% block beforeContent %}
-{{ backLink({
-text: 'Go back',
-href: 'javascript:history.back();'
-}) }}
+  {{ backLink({
+    text: 'Go back',
+    href: 'javascript:history.back();'
+  }) }}
 {% endblock %}
 
 {% block content %}
