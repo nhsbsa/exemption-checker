@@ -15,129 +15,99 @@
 NHS.UK prototype kit
 {% endblock %}
 
-<!-- For adding a breadcrumb or back link -->
-<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
 {% block beforeContent %}
 {% endblock %}
 
 
-<!-- For adding page content -->
-<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
 
-    <!-- Change the page title here -->
-    <h1>
-      Exemption Checker
-    </h1>
+    <h1>Exemption checker</h1>
 
 
-    {% set exemptionCheckerPrototype %}
+    {% set prototypeV1TabHTML %}
 
-      <!-- EXEMPTION CHECKER TAB -->
+      <!-- PROTOTYPE TAB V1 -->
 
       <p>This prototype is a recreation of the current live product. It will form the basis of future iteration work.</p>
 
       {{ button({
-        text: 'Latest prototype v1.0',
+        text: 'Launch prototype v1',
         href: '/v1/start?userRecordFound=true'
       }) }}
 
-      <p class="nhsuk-body"><a href="/v1/start?userRecordFound=false">Latest prototype v1.0 - "No record found" route</a></p>
+      <p class="nhsuk-body"><a href="/v1/start?userRecordFound=false">Launch prototype v1 - "No record found" route</a></p>
 
     {% endset -%} 
     
     
-    {% set researchPrototype %}
+    {% set pageListV1TabHTML %}
 
-      <!-- RESEARCH PROTOTYPE TAB -->
+      <!-- PAGE LIST TAB V1 -->
 
-      {{ button({
-        text: 'Save and continue'
+      {{ table({
+        panel: false,
+        caption: 'Cookies pages',
+        firstCellIsHeader: false,
+        head: [
+          { text: 'Description' },
+          { text: 'Prototype link' }
+        ],
+        rows: [
+          [
+            { text: 'Start page with cookies' },
+            { html: '<a class="nhsuk-link" href="v1/cookies/start-cookies">Cookies banner on start page</a>' }
+          ],
+          [
+            { text: 'Choose cookies' },
+            { html: '<a class="nhsuk-link" href="v1/cookies/choose-cookies">Choose cookies</a>' }
+          ],
+          [
+            { text: 'Cookie settings saved' },
+            { html: '<a class="nhsuk-link" href="v1/cookies/cookies-saved">Your cookie settings have been saved</a>' }
+          ],
+          [
+            { text: 'NHSBSA cookies' },
+            { html: '<a class="nhsuk-link" href="v1/cookies/nhsbsa-cookies">Cookies on the NHSBSA website</a>' }
+          ]
+        ]
+      }) }}
+
+      {{ table({
+        panel: false,
+        caption: 'Error pages',
+        firstCellIsHeader: false,
+        head: [
+          { text: 'Description' },
+          { text: 'Prototype link' }
+        ],
+        rows: [
+          [
+            { text: 'Choose cookies error' },
+            { html: '<a class="nhsuk-link" href="v1/cookies/choose-cookies-error">Choose cookies - No radio selected</a>' }
+          ]
+        ]
       }) }}
 
     {% endset -%}
 
+    <h2 class="nhsuk-heading-l">Version 1</h2>
+
     {{ tabs({
-    items: [
-    {
-      label: 'Exemption checker prototype',
-      id: 'exemptionCheckerPrototype',
-      panel: {
-        html: exemptionCheckerPrototype
-      }
-    }
-    ]
+      items: [
+        {
+          label: 'Prototype',
+          id: 'prototypeV1Tab',
+          panel: { html: prototypeV1TabHTML }
+        },
+        {
+          label: 'Page list',
+          id: 'pageListV1Tab',
+          panel: { html: pageListV1TabHTML }
+        }
+      ]
     }) }}
-
-
-    <details class="nhsuk-details nhsuk-expander">
-      <summary class="nhsuk-details__summary">
-        <span class="nhsuk-details__summary-text">Exemption checker v1.0 page list</span>
-      </summary>
-      <div class="nhsuk-details__text">
-        <h3>Cookies pages</h3>
-        <table class="nhsuk-table">
-          <thead class="nhsuk-table__head">
-            <tr>
-              <th scope="col">Description</th>
-              <th scope="col">Prototype Link</th>
-            </tr>
-          </thead>
-          <tbody class="nhsuk-table__body">
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Start page with cookies</td>
-              <td class="nhsuk-table__cell"><a href="v1/cookies/start-cookies">Cookies banner on start page</a></td>
-            </tr>
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Choose cookies</td>
-              <td class="nhsuk-table__cell"><a href="v1/cookies/choose-cookies">Choose cookies</a></td>
-            </tr>
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Cookie settings saved</td>
-              <td class="nhsuk-table__cell"><a href="v1/cookies/cookies-saved">Your cookie settings have been saved</a></td>
-            </tr>
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">NHSBSA cookies</td>
-              <td class="nhsuk-table__cell"><a href="v1/cookies/nhsbsa-cookies">Cookies on the NHSBSA website</a></td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3>Error pages</h3>
-        <table class="nhsuk-table">
-          <thead class="nhsuk-table__head">
-            <tr>
-              <th scope="col">Description</th>
-              <th scope="col">Prototype Link</th>
-            </tr>
-          </thead>
-          <tbody class="nhsuk-table__body">
-            <tr class="nhsuk-table__row">
-              <td class="nhsuk-table__cell">Choose cookies error</td>
-              <td class="nhsuk-table__cell"><a href="v1/cookies/choose-cookies-error">Choose cookies - No radio selected</a></td>
-            </tr>
-          </tbody>
-        </table>
-
-      </div>
-    </details>
-    
-    
-
-    <!--
-
-    ,
-    {
-      label: 'Research prototype',
-      id: 'researchPrototype',
-      panel: {
-        html: researchPrototype
-      }
-    }
-
-    -->
 
 
   </div>
