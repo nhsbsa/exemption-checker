@@ -1,5 +1,59 @@
 {% extends 'layout.html' %}
 
+{% block pageTitle %}{{ serviceName }} - Configure {{ version }} prototype{% endblock %}
+
+
 {% block content %}
-    <script>window.location.href = 'start';</script>
-{% endblock %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+       
+
+        <h1>Configure {{ version }} prototype</h1>
+
+        <form action="configure-prototype" method="post" novalidate>
+
+            
+            {{ radios({
+                idPrefix: 'type',
+                name: 'type',
+                value: data.type,
+                fieldset: {
+                    legend: {
+                        text: 'What outcome do you want to simulate?',
+                        classes: 'nhsuk-fieldset__legend--s',
+                        isPageHeading: false
+                    }
+                },
+                items: [
+                    {
+                        value: 'confirmation--exemption-not-found',
+                        text: 'Exemption not found'
+                    },
+                    {
+                        value: 'confirmation--exemption-found-prescriptions-dental',
+                        text: 'Exemption found (Prescriptions and dental)'
+                    },
+                    {
+                        value: 'confirmation--exemption-found-prescriptions',
+                        text: 'Exemption found (Prescriptions)'
+                    },
+                    {
+                        value: 'confirmation--60-or-over',
+                        text: '60 or over'
+                    },
+                    {
+                        value: 'confirmation--under-16',
+                        text: 'Under 16'
+                    }
+                ]
+            }) }}
+
+            {{ button({
+                text: 'Configure and launch'
+            }) }}
+
+        </form>
+
+    </div>
+</div>
+ {% endblock %}

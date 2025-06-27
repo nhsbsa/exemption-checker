@@ -40,24 +40,6 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
 
   };
 
-  //
-  // DEBUG DATA FUNCTION
-  //
-  filters.debugData = function( data ){
-
-    let debug = ( data.debug === true || data.debug === 'true' ) ? true : false;
-    let html = '';
-
-    if( debug ){
-      html = '<div class="nhsuk-grid-row"><div class="nhsuk-grid-column-two-thirds">';
-      html += '<div class="nhsuk-form-group"><textarea class="nhsuk-textarea" rows="5" disabled>' + JSON.stringify(data) + '</textarea></div>';
-      html += '</div></div>';
-    }
-
-    return html;
-
-
-  };
 
 
   //

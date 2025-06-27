@@ -2,29 +2,26 @@
 const express = require('express');
 const router = express.Router();
 
-//
-// DATE OF BIRTH
-//
+
+router.post(/configure-prototype/, function (req, res) {
+    const destination = 'start';
+    res.redirect( destination );
+});
+
 router.post(/date-of-birth/, function (req, res) {
-    res.redirect('name');
+    const destination = 'name';
+    res.redirect( destination );
 });
 
-//
-// NAME
-//
 router.post(/name/, function (req, res) {
-    res.redirect('postcode');
+    const destination = 'postcode';
+    res.redirect( destination );
 });
 
-//
-// POSTCODE
-//
 router.post(/postcode/, function (req, res) {
-
-    const nextPage = ( req.session.data.userRecordFound === 'true' || req.session.data.userRecordFound === true ) ? 'record-found' : 'no-record-found';
-
-    res.redirect(nextPage);
-    
+    const destination = req.session.data.type;
+    res.redirect( destination );
 });
+
 
 module.exports = router;

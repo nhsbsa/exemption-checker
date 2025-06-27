@@ -67,17 +67,17 @@
 
     {{ details({
       text: 'The details you gave do not match our records',
-      HTML: '<p>If you have recently moved or changed your name, we may have your old information. Change your details then try again.</p><p>If you\'ve never had an exemption from paying NHS costs, we won\'t have your details.</p>'
+      HTML: "<p>If you have recently moved or changed your name, we may have your old information. Change your details then try again.</p><p>If you've never had an exemption from paying NHS costs, we won't have your details.</p>"
     }) }}
    
 
     {{ details({
-      text: 'You\'ve recently become entitled to help with NHS costs',
+      text: "You've recently become entitled to help with NHS costs",
       HTML: '<p>We may not have all your details yet. Our records can take up to 6 weeks to update.</p>'
     }) }}
    
     {{ details({
-      text: 'You\'re no longer entitled to help with NHS costs',
+      text: "You're no longer entitled to help with NHS costs",
       HTML: '<p>Your eligibility for free NHS treatment may have ended.</p>'
     }) }}
 
@@ -102,7 +102,7 @@
 
 
     <h3 class="nhsuk-heading-s">Help us improve this service</h3>
-    <p class="nhsuk-body"><a class="nhsuk-link" href="https://online1.snapsurveys.com/check-my-nhs-exemption-feedback" id="finished-survey" target="_blank" rel="noopener">What did you think of this service?<span class="nhsuk-u-visually-hidden"> (Opens in a new tab)</span></a> (Takes 30 seconds)</p>
+    <p class="nhsuk-body"><a class="nhsuk-link" href="{{ data.feedbackLink }}" id="finished-survey" target="_blank" rel="noopener">What did you think of this service?<span class="nhsuk-u-visually-hidden"> (Opens in a new tab)</span></a> (Takes 30 seconds)</p>
  
     <hr class="nhsuk-section-break" />
 
@@ -114,7 +114,5 @@
 
   </div>
 </div>
-
-{{ data | debugData | safe }}
 
 {% endblock %}

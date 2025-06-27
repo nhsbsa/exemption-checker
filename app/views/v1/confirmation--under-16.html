@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <div class="done-panel">
+      <h1 class="nhsuk-heading-xl done-panel nhsuk-u-margin-0">
+        You get help with health costs
+      </h1>
+    </div>
+
+   
+<h2 class="nhsuk-heading-m">Because you're under 16:</h2>
+<p class="nhsuk-heading-m">You get free:</p>
+
+<ul>
+  <li>NHS prescriptions</li>
+  <li>NHS dental check-ups and treatment</li>
+  <li>sight tests</li>
+  <li>NHS wigs and fabric supports</li>
+</ul>
+
+<p class="nhsuk-heading-m">You get money off:</p>
+<ul>
+  <li>new glasses or contact lenses</li>
+  <li>repairing or replacing your glasses or contact lenses</li>
+</ul>
+
+<p class="nhsuk-heading-m">You don't automatically get help towards the cost of:</p>
+<ul>
+  <li>travel for NHS treatment</li>
+</ul>
+
+<p>You may still get help if your parent or guardian is on <a href="https://www.nhsbsa.nhs.uk/check-if-youre-eligible-help/getting-benefits">certain benefits</a> or has applied for <a href="https://www.nhsbsa.nhs.uk/nhs-help-health-costs">help with NHS costs</a>.</p>
+
+<p class="nhsuk-heading-m">You do not automatically get free:</p>
+
+<ul>
+  <li>NHS dental check-ups and treatment</li>
+</ul>
+
+<hr />
+
+<h2 class="nhsuk-heading-m">How to get your help</h2>
+<p>In most circumstances you won't have to do anything as your date of birth will be on your medical records and will show your age.</p>
+
+<h2 class="nhsuk-heading-s">To get your free prescriptions</h2>
+<p>Tick box A (first box down) on the back of the prescription form.</p>
+
+    <h2 class="nhsuk-heading-s">Help us improve this service</h2>
+    <p class="nhsuk-body"><a href="{{ data.feedbackLink }}">What did you think
+        of this service?</a> (Takes 30 seconds)</p>
+
+    <hr class="nhsuk-section-break" />
+
+    {{ actionLink({
+      text: 'Check again',
+      href: 'start'
+    }) }}
+
+
+  </div>
+</div>
+
+{% endblock %}

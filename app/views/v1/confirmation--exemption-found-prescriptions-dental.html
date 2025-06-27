@@ -16,63 +16,44 @@
     </div>
 
     {{ summaryList({
-    rows: [
-    {
-    key: {
-    text: 'Full name'
-    },
-    value: {
-    html: '' | processName()
-    }
-    },
-    {
-    key: {
-    text: 'Date of birth'
-    },
-    value: {
-    text: '' | processDateOfBirth()
-    }
-    },
-    {
-    key: {
-    text: 'Exempt from paying'
-    },
-    value: {
-    html: '<ul class="nhsuk-list">
-      <li>NHS prescriptions</li>
-      <li>NHS dental check-ups and treatment</li>
-    </ul>'
-    }
-    },
-    {
-    key: {
-    text: 'End date'
-    },
-    value: {
-    text: 6 | alterTodaysDateByNumberOfMonths
-    }
-    },
-    {
-    key: {
-    text: 'Today\'s date'
-    },
-    value: {
-    text: 0 | alterTodaysDateByNumberOfMonths
-    }
-    }
-    ]
+      rows: [
+        {
+          key: { text: 'Full name' },
+          value: { html: '' | processName() }
+        },
+        {
+          key: { text: 'Date of birth' },
+          value: { text: '' | processDateOfBirth() }
+        },
+        {
+          key: { text: 'Exempt from paying' },
+          value: { html: '<ul class="nhsuk-list">
+            <li>NHS prescriptions</li>
+            <li>NHS dental check-ups and treatment</li>
+          </ul>'
+          }
+        },
+        {
+          key: { text: 'End date' },
+          value: { text: 6 | alterTodaysDateByNumberOfMonths }
+        },
+        {
+          key: { text: "Today's date" },
+          value: { text: 0 | alterTodaysDateByNumberOfMonths }
+        }
+      ]
     }) }}
 
 
 
-    <h2 class="nhsuk-heading-l">How to get your help</h2>
+    <h2 class="nhsuk-heading-m">How to get your help</h2>
 
-    <h3 class="nhsuk-heading-m">Collecting prescriptions</h3>
+    <h3 class="nhsuk-heading-s">Collecting prescriptions</h3>
     <p class="nhsuk-body">Pharmacy staff will ask for your exemption details. If you do not have them with you, your
       pharmacist should tick 'Evidence not seen' on the prescription. They will not charge you.</p>
     <p class="nhsuk-body">You can show this page as proof today.</p>
 
-    <h3 class="nhsuk-heading-m">Dental check-ups and treatment</h3>
+    <h3 class="nhsuk-heading-s">Dental check-ups and treatment</h3>
     <p class="nhsuk-body">At your dental practice you'll be given a form to fill out.</p>
     <p class="nhsuk-body">Put a cross (X) in the relevant box and write your certificate number on the form if you:</p>
 
@@ -89,9 +70,8 @@
 
     <p class="nhsuk-body"><a href="#">Print this</a></p>
 
-    <h2 class="nhsuk-heading-l">Help us improve this service</h2>
-    <p class="nhsuk-body"><a href="https://online1.snapsurveys.com/check-my-nhs-exemption-feedback">What did you think
-        of this service?</a> (Takes 30 seconds)</p>
+    <h2 class="nhsuk-heading-s">Help us improve this service</h2>
+    <p class="nhsuk-body"><a href="{{ data.feedbackLink }}">What did you think of this service?</a> (Takes 30 seconds)</p>
 
     <hr class="nhsuk-section-break" />
 
@@ -103,7 +83,5 @@
 
   </div>
 </div>
-
-{{ data | debugData | safe }}
 
 {% endblock %}
