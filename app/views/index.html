@@ -45,7 +45,7 @@ NHS.UK prototype kit
 
       <!-- PROTOTYPE TAB V2 -->
 
-      <p>Features created in this version:</p>
+      <p>Features investigated in this version:</p>
       <ul>
         <li>Standardised and updated components to latest toolkit</li>
         <li>Adding HRT PPC to the list of checked options</li>
@@ -111,9 +111,55 @@ NHS.UK prototype kit
 
     {% endset -%}
 
+
+    {% set pageListV2TabHTML %}
+
+      <!-- PAGE LIST TAB V2 -->
+
+      {{ table({
+        panel: false,
+        caption: 'HRT PPC screens',
+        firstCellIsHeader: false,
+        head: [
+          { text: 'Description' },
+          { text: 'Prototype link' }
+        ],
+        rows: [
+          [
+            { text: 'Confirmation - HRT PPC' },
+            { html: '<a class="nhsuk-link" href="v2/confirmation--exemption-found-hrt-ppc">Confirmation</a>' }
+          ]
+        ]
+      }) }}
+
+     
+
+    {% endset -%}
+
+
+
+    <h2 class="nhsuk-heading-l">Version 2</h2>
+
+    {{ tabs({
+      id: 'v2Tabs',
+      items: [
+        {
+          label: 'Prototype',
+          id: 'prototypeV2Tab',
+          panel: { html: prototypeV2TabHTML }
+        },
+        {
+          label: 'Page list',
+          id: 'pageListV2Tab',
+          panel: { html: pageListV2TabHTML }
+        }
+      ]
+    }) }}
+
     <h2 class="nhsuk-heading-l">Version 1</h2>
 
     {{ tabs({
+      id: 'v1Tabs',
       items: [
         {
           label: 'Prototype',
