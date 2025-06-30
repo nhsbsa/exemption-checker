@@ -40,6 +40,25 @@ NHS.UK prototype kit
       <p class="nhsuk-body"><a href="/v1/">Configure v1 prototype</a></p>
 
     {% endset -%} 
+
+    {% set prototypeV2TabHTML %}
+
+      <!-- PROTOTYPE TAB V2 -->
+
+      <p>Features created in this version:</p>
+      <ul>
+        <li>Standardised and updated components to latest toolkit</li>
+        <li>Adding HRT PPC to the list of checked options</li>
+      </ul>
+
+      {{ button({
+        text: 'Launch v2 prototype',
+        href: '/v2/start'
+      }) }}
+
+      <p class="nhsuk-body"><a href="/v2/">Configure v2 prototype</a></p>
+
+    {% endset -%} 
     
     
     {% set pageListV1TabHTML %}

@@ -11,7 +11,7 @@ router.use((req, res, next) => {
   console.log(req.originalUrl);
 
   // Versions
-  const versions = ['v1'];
+  const versions = ['v1','v2'];
 
   // Clear current routes 
   router.stack = router.stack.filter(layer => layer.name !== 'router');

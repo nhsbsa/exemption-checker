@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+
+    {{ panel({
+      titleText: 'You get help with help costs',
+      html: 'You are aged 60 or over'
+    }) }}
+   
+
+    {{ list({
+      title: 'You get free',
+      type: 'tick',
+      headingLevel: 2,
+      items: [
+        { item: 'NHS prescriptions' },
+        { item: 'sight tests' }    
+      ]
+    }) }}
+
+    {{ list({
+      title: 'You do not automatically get free',
+      type: 'cross',
+      hidePrefix: true,
+      headingLevel: 2,
+      items: [
+        { item: 'NHS dental check-ups and treatment' }  
+      ]
+    }) }}
+
+
+    <h2 class="nhsuk-heading-m">How to get your help</h2>
+    <p>In most circumstances you won't have to do anything as your date of birth will be on your medical records and will show your age.</p>
+
+    <h3 class="nhsuk-heading-s">To get your free prescriptions</h2>
+    <p>Tick box C (third box down) on the back of the prescription form.</p>
+
+    <h2 class="nhsuk-heading-m">Could you get help to pay other NHS costs?</h2>
+    <p>Answer a few more questions about your circumstances to check if you could get <a href="https://www.nhsbsa.nhs.uk/nhs-help-health-costs">help to pay other NHS costs</a>.</p>
+
+    <h2 class="nhsuk-heading-m">Help us improve this service</h2>
+    <p class="nhsuk-body"><a href="{{ data.feedbackLink }}">What did you think of this service?</a> (Takes 30 seconds)</p>
+
+    {{ actionLink({
+      text: 'Check again',
+      href: 'start'
+    }) }}
+
+
+  </div>
+</div>
+
+{% endblock %}

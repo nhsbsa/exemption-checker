@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1 class="nhsuk-heading-xl">{{ serviceName }}</h1>
+    <p class="nhsuk-body-l">An NHS exemption certificate helps you to pay for your NHS costs, such as prescriptions or dental treatment.</p>
+
+    <h2 class="nhsuk-heading-l">What you can check</h2>
+
+    <p class="nhsuk-body">If you live in England, you can use this service to check if your NHS exemption:</p>
+
+    <ul class="nhsuk-list nhsuk-list--bullet">
+      <li>is still valid or will expire soon</li>
+      <li>entitles you to free NHS prescriptions</li>
+      <li>entitles you to free NHS dental check-ups and treatment</li>
+    </ul>
+
+    <h3 class="nhsuk-heading-m">Exemptions you can check</h3>
+
+    <ul class="nhsuk-list nhsuk-list--bullet">
+      <li> NHS Prescription Prepayment Certificate (PPC)</li>
+      <li>medical exemption certificate</li>
+      <li>maternity exemption certificate</li>
+      <li>HC2 certificate (full help through the NHS Low Income Scheme)</li>
+      <li>Hormone Replacement Therapy Prescription Prepayment Certificate (HRT PPC)</li>
+    </ul>
+
+    <p class="nhsuk-body">This result can only be used as proof today. You'll need to check this service each time you want to use it as proof.</p>
+
+    <h3 class="nhsuk-heading-m">Exemptions you cannot currently check</h3>
+
+    <ul class="nhsuk-list nhsuk-list--bullet">
+      <li>HC3 certificate (partial help through the NHS Low Income Scheme)</li>
+    </ul>
+
+    <p class="nhsuk-body"> <a href="https://www.nhsbsa.nhs.uk/contact-nhs-help-health-costs">Contact us if you think you may have one of these certificates and want to check if it is still valid</a>.</p>
+
+    <p class="nhsuk-body">We cannot check prescription exemption certificates issued by the Ministry of Defence. <a href="https://www.gov.uk/guidance/war-pensioners-other-help-you-may-be-entitled-to#prescription-exemption-certificates">More information on these certificates can be found at GOV.UK</a>.</p>
+
+    <h2 class="nhsuk-heading-l">When you do not need to check</h2>
+
+    <p class="nhsuk-body">You're automatically entitled to free NHS prescriptions and NHS dental treatment if you are:</p>
+
+    <ul class="nhsuk-list nhsuk-list--bullet">
+      <li>under 16</li>
+      <li>16, 17 or 18 and in full time education</li>
+      <li>getting <a class="nhsuk-link" href="https://www.nhsbsa.nhs.uk/check-if-youre-eligible-help/getting-benefits"
+          target="_blank" rel="noopener" aria-label="certain benefits (opens in a new tab)">certain benefits</a> or you're named on the claim as a partner or child
+      </li>
+    </ul>
+
+    {{ button({
+      text: 'Start now',
+      href: 'date-of-birth'
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+     
+        <h1 class="nhsuk-heading-l">Cookies on the NHSBSA website</h1>
+
+  
+      <h2>What are cookies?</h2>
+      <p>Cookies are files saved on your phone, tablet or computer when you visit a website<br><br>
+      They store information about how you use the website, such as the pages you visit.<br><br>
+    Cookies are not viruses or computer programs. They are very small so do not take up much space<br></p>
+      
+    <h2>How we use cookies</h2>
+    <p>We use cookies to:<br>
+    <ul>
+      <li>make our website work, for example by keeping it secure</li>
+      <li>remember which pop-ups you've seen</li>
+      <li>measure how you use our website, such as which links you click on (analytical cookies)</li>
+      <li>help show you relevant health campaigns on social media</li>
+    </ul>
+
+    <details class="nhsuk-details">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          List of cookies that make our website work
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        Cookie list to go here.
+      </div>
+    </details>
+  
+  </p>
+  
+  <h2>Change your cookie settings</h2>
+
+<p>Some cookies, like those we needed to measure how you use our website, are not needed for our website to work <br><br>
+These cookies can help make our website better, but we'll only use them if you say it's OK.</p>
+ 
+<form method="post" action="choose-cookies" novalidate>
+
+  {{ button({
+    text: 'Choose which cookies we use'
+  }) }}
+
+</form>
+
+
+
+<h3>How we use the information we collect</h3>
+<p>To find out how we collect, store and use information about you or your visit, see the <a href="https://www.nhsbsa.nhs.uk/our-policies/privacy">NHSBSA website privacy policy</a></p>
+   
+    </div>  
+  </div>
+{% endblock %}
