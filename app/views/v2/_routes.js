@@ -61,5 +61,32 @@ router.post(/postcode/, function (req, res) {
     res.redirect( destination );
 });
 
+router.post(/verification-method/, function (req, res) {
+    const destination = 'verification-code';
+    if( req.session.data.verficationMethod !== 'text-message' ){
+        req.session.data.verficationMethod = 'email-address';
+    }
+    res.redirect( destination );
+});
+
+router.post(/verification-code/, function (req, res) {
+
+    let destination;
+    switch( req.session.data.journey ){
+        case 'extraValidationMATEX':
+            destination = 'exemption--matex';
+            break;
+        case 'extraValidationPPC':
+            destination = 'exemption--ppc';
+            break;
+        case 'extraValidationHRTPPC':
+            destination = 'exemption--hrt-ppc';
+            break;
+        
+    }
+    res.redirect( destination );
+    
+});
+
 
 module.exports = router;

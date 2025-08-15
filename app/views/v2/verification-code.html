@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block beforeContent %}
+  {{ backLink({
+    text: 'Go back',
+    href: 'javascript:history.back();'
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <form action="verification-code" method="post" novalidate>
+
+        <h1 class="nhsuk-heading-l">Check your {% if data.verificationMethod === 'text-message' %}phone{% else %}email{% endif %}</h1>
+        <p class="nhsuk-hint">We have sent a code {% if data.verificationMethod === 'text-message' %} via text message {% endif %}to the {% if data.verificationMethod === 'text-message' %}phone number{% else %}email address{% endif %} used in applying for your exemption.</p>
+
+        {{ input({
+        label: {
+          text: 'Code'
+        },
+        classes: 'nhsuk-input nhsuk-input--width-10',
+        id: 'verificationCode',
+        name: 'verificationCode'
+      }) }}
+
+      {% if data.verificationMethod === 'text-message' %}
+
+        <!-- MISSING TEXT MESSAGE -->
+        {{ details({
+          text: 'I have not received the text message',
+          html: '<p class="nhsuk-body">The text message may take a few minutes to arrive.</p>
+                 <p class="nhsuk-body">If it does not arrive, you can <a class="nhsuk-link" href="#">request a new code</a>.</p>
+                 <p class="nhsuk-body">Alternatively, the phone number used in applying for your exemption may be incorrect. <a href="#">Contact us</a> for further help.</p>'
+        }) }}
+
+      {% else %}
+
+        <!-- MISSING EMAIL -->
+        {{ details({
+          text: 'I have not received the email',
+          html: '<p class="nhsuk-body">The email may take a few minutes to arrive. Its subject line is: "Care Identity Authentication One Time Password".</p>
+                 <p class="nhsuk-body">Check your spam or junk folder - if it still has not arrived, you can <a class="nhsuk-link" href="#">request a new code</a>.</p>
+                 <p class="nhsuk-body">Alternatively, the email address used in applying for your exemption may be incorrect. <a href="#">Contact us</a> for further help.</p>'
+        }) }}
+
+      {% endif %}
+
+     
+
+      {{ button({
+        text: 'Continue'
+      }) }}
+
+    </form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

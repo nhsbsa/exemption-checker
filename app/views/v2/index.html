@@ -42,12 +42,126 @@
                         text: 'Exemption found (HRT prescriptions)'
                     },
                     {
+                        value: 'confirmation--exemption-found-benefits',
+                        text: 'Exemption found (Qualifying benefit)'
+                    },
+                    {
                         value: 'confirmation--60-or-over',
                         text: '60 or over'
                     },
                     {
                         value: 'confirmation--under-16',
                         text: 'Under 16'
+                    }
+                ]
+            }) }}
+
+
+            <script>
+
+
+                const RadioButtons = (function(){
+
+                    //
+                    // SELECT RADIO FUNCTION
+                    //
+                    _selectRadio = function( group, value ){
+                        document.querySelectorAll('input[name="'+group+'"]').forEach(function( el ){
+                            el.checked = false;
+                            if( el.value === value ){
+                                el.checked = true;
+                            }
+                        });
+                    };
+
+                    //
+                    // INIT FUNCTION
+                    //
+                    _init = function(){
+
+                        // JOURNEY RADIO BUTTONS
+                        document.querySelectorAll('input[name="journey"]').forEach(function( el ){
+                            el.addEventListener('change',function( e ){
+
+                                const type = document.querySelector('input[name="journey"]:checked').value;
+                                const journey = e.target.value;
+
+                                if( journey === 'extraValidationMATEX' ){
+                                    _selectRadio( 'type', 'confirmation--exemption-found-prescriptions-dental' );
+                                }
+
+                                if( journey === 'extraValidationPPC' ){
+                                    _selectRadio( 'type', 'confirmation--exemption-found-prescriptions' );
+                                }
+
+                                if( journey === 'extraValidationHRTPPC' ){
+                                    _selectRadio( 'type', 'confirmation--exemption-found-hrt-ppc' );
+                                }
+
+                            });
+                        });
+
+                        // TYPE RADIO BUTTONS
+                        document.querySelectorAll('input[name="type"]').forEach(function( el ){
+                            el.addEventListener('change',function( e ){
+
+                                const type = e.target.value;
+                                const journey = document.querySelector('input[name="journey"]:checked').value;
+
+                                if( ['confirmation--exemption-not-found','confirmation--under-16','confirmation--60-or-over'].indexOf(type) > -1 ){
+                                    // Reset the journey if type is not applicable
+                                    _selectRadio( 'journey', 'default' );
+                                }
+
+                            });
+                        });
+
+
+                    };
+                    
+
+                    return {
+                        init: _init
+                    }
+
+                })();
+
+                window.addEventListener('DOMContentLoaded',function(){
+                    RadioButtons.init();
+                });
+
+            </script>
+
+            {{ radios({
+                idPrefix: 'journey',
+                name: 'journey',
+                value: data.journey,
+                fieldset: {
+                    legend: {
+                        text: 'Which journey do you want to see?',
+                        classes: 'nhsuk-fieldset__legend--s',
+                        isPageHeading: false
+                    }
+                },
+                items: [
+                    {
+                        value: 'default',
+                        text: 'Default'
+                    },
+                    {
+                        value: 'extraValidationMATEX',
+                        text: 'Extra validation - MATEX',
+                        hint: { text: 'This will set the outcome to "Prescriptions and dental"' }
+                    },
+                    {
+                        value: 'extraValidationPPC',
+                        text: 'Extra validation - PPC',
+                        hint: { text: 'This will set the outcome to "Prescriptions"' }
+                    },
+                    {
+                        value: 'extraValidationHRTPPC',
+                        text: 'Extra validation - HRT PPC',
+                        hint: { text: 'This will set the outcome to "HRT PPC"' }
                     }
                 ]
             }) }}

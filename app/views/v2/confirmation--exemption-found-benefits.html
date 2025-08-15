@@ -6,11 +6,10 @@
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
 
-
-    {{ panel({
-      titleText: 'You currently have an NHS exemption',
-      html: 'Expires on ' + ( 6 | alterTodaysDateByNumberOfMonths )
+   {{ panel({
+      titleText: 'You get help with help costs'
     }) }}
+
 
     {{ list({
       title: 'You get free',
@@ -18,11 +17,29 @@
       headingLevel: 2,
       items: [
         { item: 'NHS prescriptions' },
-        { item: 'NHS dental check-ups and treatment' }    
+        { item: 'NHS dental check-ups and treatment' },
+        { item: 'sight tests' },
+        { item: 'NHS wigs and fabric supports' }        
       ]
     }) }}
 
-    <h2 class="nhsuk-u-visually-hidden">Exemption details</h2>
+    <div class="nhsuk-do-dont-list">
+      <h2 class="nhsuk-do-dont-list__label">You get money off</h2>
+      <ul class="nhsuk-list nhsuk-list--circle" role="list">
+        <li><svg class="nhsuk-icon nhsuk-icon__dash" width="34" height="34" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;"><path d="M20,12l-16,0" style="fill:none;fill-rule:nonzero;stroke:#f90;stroke-width:4px;"/></svg>new glasses or contact lenses</li>
+        <li><svg class="nhsuk-icon nhsuk-icon__dash" width="34" height="34" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;"><path d="M20,12l-16,0" style="fill:none;fill-rule:nonzero;stroke:#f90;stroke-width:4px;"/></svg>travel for NHS treatment</li>
+      </ul>
+    </div>
+
+    {{ list({
+      title: 'You do not automatically get free',
+      type: 'cross',
+      hidePrefix: true,
+      headingLevel: 2,
+      items: [
+        { item: 'repairing or replacing of your glasses or contact lenses' }  
+      ]
+    }) }}
 
     {{ summaryList({
       rows: [
@@ -33,46 +50,9 @@
         {
           key: { text: 'Date of birth' },
           value: { text: '' | processDateOfBirth() }
-        },
-        {
-          key: { text: 'End date' },
-          value: { text: 6 | alterTodaysDateByNumberOfMonths }
-        },
-        {
-          key: { text: "Today's date" },
-          value: { text: 0 | alterTodaysDateByNumberOfMonths }
         }
       ]
     }) }}
-
-
-    {% if data.journey === 'extraValidationMATEX' %}
-
-      {% set insetTextHTML %}
-
-        <h2 class="nhsuk-heading-m">More information about your exemption</h2>
-        <p class="nhsuk-body">This is a summary of your exemption. By verifying your identity you will be able to:</p>
-        <ul class="nhsuk-list nhsuk-list--bullet">
-          <li>view full exemption details</li>
-          <li>add your exemption to your Apple or Google Wallet</li>
-          <li>change your details</li>
-        </ul>
-          
-        {{ button({
-          text: 'Verify my identity',
-          href: 'verification-method'
-        }) }}
-
-      {% endset %}
-
-      {{ insetText({
-        html: insetTextHTML
-      }) }}
-
-    {% endif %}
-
-
-
 
 
     <h2 class="nhsuk-heading-m">How to get your help</h2>
@@ -99,10 +79,13 @@
 
     <p class="nhsuk-body"><a href="#">Print this</a></p>
 
-    <h2 class="nhsuk-heading-s">Help us improve this service</h2>
+
+
+
+
+    <h2 class="nhsuk-heading-m">Help us improve this service</h2>
     <p class="nhsuk-body"><a href="{{ data.feedbackLink }}">What did you think of this service?</a> (Takes 30 seconds)</p>
 
-    <hr class="nhsuk-section-break" />
 
     {{ actionLink({
       text: 'Check again',

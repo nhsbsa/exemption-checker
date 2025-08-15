@@ -7,9 +7,22 @@
   <div class="nhsuk-grid-column-two-thirds">
 
 
+    {% set panelHTML %}
+      <dl>
+         <div>
+             <dd class="nhsuk-body nhsuk-u-margin-0">Certificate number:</dd>
+             <dt class="nhsuk-heading-l">8436 810 379</dt>
+         </div>
+         <div>
+             <dd class="nhsuk-body nhsuk-u-margin-0">Exemption ends:</dd>
+             <dt class="nhsuk-heading-l nhsuk-u-margin-bottom-0">{{ 6 | alterTodaysDateByNumberOfMonths }}</dt>
+         </div>
+     </dl>
+    {% endset %}
+
     {{ panel({
-      titleText: 'You currently have an NHS exemption',
-      html: 'Expires on ' + ( 6 | alterTodaysDateByNumberOfMonths )
+      titleText: 'You currently have a maternity exemption',
+       html: panelHTML
     }) }}
 
     {{ list({
@@ -28,11 +41,25 @@
       rows: [
         {
           key: { text: 'Full name' },
-          value: { html: '' | processName() }
+          value: { html: '' | processName() },
+          actions: {
+            items: [
+              { href: '#', text: 'Change', visuallyHiddenText: 'full name' }
+            ]
+          }
         },
         {
           key: { text: 'Date of birth' },
           value: { text: '' | processDateOfBirth() }
+        },
+        {
+          key: { text: "Due date or baby's birth date" },
+          value: { text: -9 | alterTodaysDateByNumberOfMonths },
+          actions: {
+            items: [
+              { href: '#', text: 'Change', visuallyHiddenText: 'full name' }
+            ]
+          }
         },
         {
           key: { text: 'End date' },
@@ -46,40 +73,25 @@
     }) }}
 
 
-    {% if data.journey === 'extraValidationMATEX' %}
+    <!-- SAVE YOUR CERTIFICATE -->
+    <h2 class="nhsuk-heading-m">Save your certificate</h2>
+    <p class="nhsuk-body">You must save your certificate details. You can do this by saving it as a PDF, printing a copy, or taking a screenshot of this page.</p>
+    <p class="nhsuk-body">If you're taking a screenshot, make sure it shows your certificate details.</p>
 
-      {% set insetTextHTML %}
+    <ul class="nhsuk-list nhsuk-list--bullet">
+      <li><a href="#">Save as a PDF</a></li>
+      <li><a href="#">Print out a copy</a></li>
+    </ul>
 
-        <h2 class="nhsuk-heading-m">More information about your exemption</h2>
-        <p class="nhsuk-body">This is a summary of your exemption. By verifying your identity you will be able to:</p>
-        <ul class="nhsuk-list nhsuk-list--bullet">
-          <li>view full exemption details</li>
-          <li>add your exemption to your Apple or Google Wallet</li>
-          <li>change your details</li>
-        </ul>
-          
-        {{ button({
-          text: 'Verify my identity',
-          href: 'verification-method'
-        }) }}
-
-      {% endset %}
-
-      {{ insetText({
-        html: insetTextHTML
-      }) }}
-
-    {% endif %}
-
-
+     <h3 class="nhsuk-heading-s">Add your certificate to an Apple Wallet</h2>
+    <p class="nhsuk-body">If you use Apple Wallet, you can <a href="#">download your certificate</a> and then send it to your iPhone - for example, by emailing the file to yourself and opening it on your phone.</p>
 
 
 
     <h2 class="nhsuk-heading-m">How to get your help</h2>
 
     <h3 class="nhsuk-heading-s">Collecting prescriptions</h3>
-    <p class="nhsuk-body">Pharmacy staff will ask for your exemption details. If you do not have them with you, your
-      pharmacist should tick 'Evidence not seen' on the prescription. They will not charge you.</p>
+    <p class="nhsuk-body">Pharmacy staff will ask for your maternity exemption details. If you have them, your pharmacist will tick box D on the prescription. If you do not have them with you, they should tick 'Evidence not seen'. They will not charge you.</p>
     <p class="nhsuk-body">You can show this page as proof today.</p>
 
     <h3 class="nhsuk-heading-s">Dental check-ups and treatment</h3>
@@ -105,8 +117,8 @@
     <hr class="nhsuk-section-break" />
 
     {{ actionLink({
-      text: 'Check again',
-      href: 'start'
+        text: 'Check again',
+        href: 'start'
     }) }}
 
 

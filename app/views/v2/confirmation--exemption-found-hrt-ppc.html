@@ -55,6 +55,32 @@
     }) }}
 
 
+    {% if data.journey === 'extraValidationHRTPPC' %}
+
+      {% set insetTextHTML %}
+
+        <h2 class="nhsuk-heading-m">More information about your exemption</h2>
+        <p class="nhsuk-body">This is a summary of your exemption. By verifying your identity you will be able to:</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li>view full exemption details</li>
+          <li>add your exemption to your Apple or Google Wallet</li>
+          <li>change your details</li>
+        </ul>
+          
+        {{ button({
+          text: 'Verify my identity',
+          href: 'verification-method'
+        }) }}
+
+      {% endset %}
+
+      {{ insetText({
+        html: insetTextHTML
+      }) }}
+
+    {% endif %}
+
+
 
     <h2 class="nhsuk-heading-m">How to get your help</h2>
 
