@@ -1,9 +1,3 @@
-# NHS BSA Exemption checker prototype
-
-This prototype can be <a href="https://hwhc-am-i-exempt-2552366ccf4c.herokuapp.com/">viewed in action</a> over on Heroku.
-
-The password is NHSBSA.
-
 # NHS prototype kit
 
 Visit the <a href="https://prototype-kit.service-manual.nhs.uk">NHS prototype kit site</a> to download the latest version and read the documentation.
