@@ -44,18 +44,38 @@
 <!-- Edit the footer -->
 <!-- Footer code examples can be found at https://service-manual.nhs.uk/design-system/components/footer -->
 {% block footer %}
+
+  {% if data.debug === 'true' %}
+    <!-- DEBUGGING INFORMATION -->
+    <div class="nhsuk-width-container">
+      <div class="nhsuk-grid-row">
+        {{ textarea({
+          name: 'debug',
+          id: 'debug',
+          label: {
+            text: 'Session data'
+          },
+          value: data | dump
+        }) }}
+      </div>
+    </div>
+  {% endif %}
+
   {{ footer({
-    "links": [
-      {
-        "URL": "/",
-        "label": "Home"
-      },
-      {
-        "URL": "/prototype-admin/reset?returnPage=" + (currentPage | urlencode),
-        "label": "Reset data"
-      }
-    ]
+    meta: {
+      items: [
+        {
+          href: '/',
+          text: 'Home'
+        },
+        {
+          href: '/prototype-admin/reset?returnPage=' + (currentPage | urlencode),
+          text: 'Reset data'
+        }
+      ]
+    }
   })}}
+  
 {% endblock %}
 
 {% block bodyEnd %}

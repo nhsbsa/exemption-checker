@@ -3,6 +3,23 @@ const express = require('express');
 const router = express.Router();
 const {DateTime} = require('luxon');
 
+router.get(/start/,function(req, res){
+
+    console.log( '*** DATA RESET ***' );
+
+    const debug = req.session.data.debug || 'false';
+    const journey = req.session.data.journey || 'confirmation--exemption-found-prescriptions-dental';
+    const type = req.session.data.type || 'default';
+
+    req.session.data = {};
+    req.session.data.debug = debug;
+    req.session.data.journey = journey;
+    req.session.data.type = type;
+
+    res.render( req.originalUrl.split('?')[0].substring(1) );
+
+});
+
 
 router.post(/configure-prototype/, function (req, res) {
     const destination = 'start';
