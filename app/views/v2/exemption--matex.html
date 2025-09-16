@@ -10,11 +10,11 @@
     {% set panelHTML %}
       <dl>
          <div>
-             <dd class="nhsuk-body nhsuk-u-margin-0">Certificate number:</dd>
+             <dd class="nhsuk-body nhsuk-u-margin-0">Certificate number</dd>
              <dt class="nhsuk-heading-l">8436 810 379</dt>
          </div>
          <div>
-             <dd class="nhsuk-body nhsuk-u-margin-0">Exemption ends:</dd>
+             <dd class="nhsuk-body nhsuk-u-margin-0">Exemption ends</dd>
              <dt class="nhsuk-heading-l nhsuk-u-margin-bottom-0">{{ 6 | alterTodaysDateByNumberOfMonths }}</dt>
          </div>
      </dl>
@@ -49,9 +49,19 @@
           }
         },
         {
+          key: { text: 'Address' },
+          value: { html: '60 Mill Road<br />Worcester<br />WR51 0LD' },
+          actions: {
+            items: [
+              { href: '#', text: 'Change', visuallyHiddenText: 'address' }
+            ]
+          }
+        },
+        {
           key: { text: 'Date of birth' },
           value: { text: '' | processDateOfBirth() }
         },
+        
         {
           key: { text: "Due date or baby's birth date" },
           value: { text: -9 | alterTodaysDateByNumberOfMonths },
