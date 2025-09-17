@@ -10,8 +10,8 @@
     {% set panelHTML %}
       <dl>
          <div>
-             <dd class="nhsuk-body nhsuk-u-margin-0">Certificate number</dd>
-             <dt class="nhsuk-heading-l">8436 810 379</dt>
+             <dd class="nhsuk-body nhsuk-u-margin-0">Certificate reference</dd>
+             <dt class="nhsuk-heading-l">HRT CF4R 477W</dt>
          </div>
          <div>
              <dd class="nhsuk-body nhsuk-u-margin-0">Exemption ends</dd>
@@ -21,7 +21,7 @@
     {% endset %}
 
     {{ panel({
-      titleText: 'You currently have a maternity exemption',
+      titleText: 'You currently have a Hormone Replacement Therapy Prescription Prepayment Certificate (HRT PPC)',
        html: panelHTML
     }) }}
 
@@ -29,9 +29,8 @@
       title: 'You get free',
       type: 'tick',
       headingLevel: 2,
-      items: [
-        { item: 'NHS prescriptions' },
-        { item: 'NHS dental check-ups and treatment' }    
+       items: [
+        { item: 'Certain HRT prescriptions<br /><a target="_blank" href="https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/nhs-hormone-replacement-therapy-prescription-prepayment-certificate-hrt-ppc/medicines-covered-hrt-ppc"><span class="nhsuk-body-s nhsuk-u-margin-bottom-0">List of HRT medications covered (opens in a new tab)</span></a>' } 
       ]
     }) }}
 
@@ -80,15 +79,6 @@
           }
         },
         {
-          key: { text: "Due date or baby's birth date" },
-          value: { text: -9 | alterTodaysDateByNumberOfMonths },
-          actions: {
-            items: [
-              { href: '#', text: 'Change', visuallyHiddenText: 'full name' }
-            ]
-          }
-        },
-        {
           key: { text: 'End date' },
           value: { text: 6 | alterTodaysDateByNumberOfMonths }
         },
@@ -110,7 +100,7 @@
       <li><a href="#">Print out a copy</a></li>
     </ul>
 
-    
+
 
     <h3 class="nhsuk-heading-s">Add your certificate to an Apple Wallet</h2>
 
@@ -144,24 +134,18 @@
 
     <h2 class="nhsuk-heading-m">How to get your help</h2>
 
-    <h3 class="nhsuk-heading-s">Collecting prescriptions</h3>
-    <p class="nhsuk-body">Pharmacy staff will ask for your maternity exemption details. If you have them, your pharmacist will tick box D on the prescription. If you do not have them with you, they should tick 'Evidence not seen'. They will not charge you.</p>
-    <p class="nhsuk-body">You can show this page as proof today.</p>
+    <!-- GETTING YOUR PRESCRIPTIONS -->
+    <h3 class="nhsuk-heading-s">Getting your HRT prescriptions</h2>
 
-    <h3 class="nhsuk-heading-s">Dental check-ups and treatment</h3>
-    <p class="nhsuk-body">At your dental practice you'll be given a form to fill out.</p>
-    <p class="nhsuk-body">Put a cross (X) in the relevant box and write your certificate number on the form if you:</p>
+    <ol class="nhsuk-list nhsuk-list--number">
+        <li>Ask your GP to list medicines covered by the HRT PPC on a separate prescription to any other items you get. Your pharmacy needs this to dispense your medication.</li>
+        <li>Before collecting your medicine, check that it is on the <a class="nhsuk-link" href="https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/nhs-hormone-replacement-therapy-prescription-prepayment-certificate-hrt-ppc/medicines-covered-hrt-ppc">list of medicines covered by the HRT PPC</a>.</li>
+        <li>When collecting your HRT prescription, show your HRT PPC and tick box 'W' for HRT PPCs on the back of your prescription.</li>
+    </ol>
 
-    <ul class="nhsuk-list nhsuk-list--bullet">
-      <li>have a valid HC2 certificate</li>
-      <li>are pregnant</li>
-      <li>have had a baby in the last 12 months</li>
-    </ul>
+    <p>If you do not have your certificate details, the pharmacy will check the box 'Evidence not seen' on the back of your prescription. You'll not be charged.</p>
+    <p>Not all prescription forms have a tick box for HRT PPCs. If that is the case tick box 'F' for Prescription Prepayment Certificate.</p>
 
-    <p class="nhsuk-body">Your dentist may ask to see proof of your entitlement.</p>
-    <p class="nhsuk-body">You can show this page as proof today.</p>
-    <p class="nhsuk-body">Find out what <a href="https://www.nhsbsa.nhs.uk/check-if-you-have-nhs-exemption/maternity-exemption-certificates">help you can get for dental treatment if you have a maternity
-        exemption certificate</a></p>
 
     <p class="nhsuk-body"><a href="#">Print this</a></p>
 

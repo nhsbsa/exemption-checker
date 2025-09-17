@@ -32,3 +32,25 @@
     margin-top: -5px;
     position: absolute;
   }
+
+  /* APPLE WALLET SECTIONS */
+
+  .apple-wallet-section--desktop {
+   display: none;
+  }
+
+  .apple-wallet-section--ios {
+      display: block;
+  }
+
+@media all and ( min-width: 48rem ){
+
+  .apple-wallet-section--desktop {
+      display: block;
+  }
+
+  .apple-wallet-section--ios {
+      display: none;
+  }
+
+}
