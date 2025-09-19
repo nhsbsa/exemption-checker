@@ -3,6 +3,14 @@
 
 {% block content %}
 
+{% set expiryDate = 6 | alterTodaysDateByNumberOfMonths %}
+
+{% if data.showHRTPPCRenewalNotice === 'true' %}
+  {% set expiryDate = 1 | alterTodaysDateByNumberOfMonths %}
+{% endif %}
+
+
+
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
 
@@ -15,13 +23,13 @@
          </div>
          <div>
              <dd class="nhsuk-body nhsuk-u-margin-0">Exemption ends</dd>
-             <dt class="nhsuk-heading-l nhsuk-u-margin-bottom-0">{{ 6 | alterTodaysDateByNumberOfMonths }}</dt>
+             <dt class="nhsuk-heading-l nhsuk-u-margin-bottom-0">{{ expiryDate }}</dt>
          </div>
      </dl>
     {% endset %}
 
     {{ panel({
-      titleText: 'You currently have a Hormone Replacement Therapy Prescription Prepayment Certificate (HRT PPC)',
+       titleText: 'You currently have a Hormone Replacement Therapy Prescription Prepayment Certificate (HRT PPC)',
        html: panelHTML
     }) }}
 
@@ -35,6 +43,8 @@
     }) }}
 
     <h2 class="nhsuk-u-visually-hidden">Exemption details</h2>
+
+    
 
     {{ summaryList({
       rows: [
@@ -80,7 +90,7 @@
         },
         {
           key: { text: 'End date' },
-          value: { text: 6 | alterTodaysDateByNumberOfMonths }
+          value:  { text: expiryDate }
         },
         {
           key: { text: "Today's date" },
@@ -88,6 +98,29 @@
         }
       ]
     }) }}
+
+
+
+    {% if data.showHRTPPCRenewalNotice === 'true' %}
+
+      {% set warningHTML %}
+
+        <p class="nhsuk-body">You have less than one month until your HRT PPC expires. If you still need your exemption, you can renew today.</p>
+
+        {{ actionLink({
+          href: 'https://health-charge-exemptions.nhsbsa.nhs.uk/buy-hrt-ppc/start',
+          text: 'Renew your HRT PPC'
+        }) }}
+      {% endset %}
+
+      <!-- RENEWAL NOTICE -->
+      {{ warningCallout({
+        heading: 'Your exemption will expire soon',
+        html: warningHTML
+      }) }}
+
+
+    {% endif %}
 
 
     <!-- SAVE YOUR CERTIFICATE -->

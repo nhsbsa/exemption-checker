@@ -6,6 +6,8 @@ module.exports = {
     journey: 'default', // ['default','extraValidationMATEX','extraValidationPPC','extraValidationHRTPPC']
 
     phaseBannerTagText: 'BETA',
-    phaseBannerFeedbackLink: 'https://online1.snapsurveys.com/check-my-nhs-exemption-feedback'
+    phaseBannerFeedbackLink: 'https://online1.snapsurveys.com/check-my-nhs-exemption-feedback',
+
+    showHRTPPCRenewalNotice: 'true'
 
 }
