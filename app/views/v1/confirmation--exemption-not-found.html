@@ -1,12 +1,17 @@
 {% extends 'layout.html' %}
 
 
+<!-- Set the page title -->
+{% block pageTitle %}
+  We cannot find an exemption certificate with these details
+{% endblock %}
+
 {% block content %}
 
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
 
-    <h1 class="nhsuk-heading-xl">We cannot match you to our records</h1>
+    <h1 class="nhsuk-heading-xl">We cannot find an exemption certificate with these details</h1>
     <p class="nhsuk-heading-m">The details you gave:</p>
 
     {{ summaryList({
@@ -67,7 +72,7 @@
 
     {{ details({
       summaryText: 'The details you gave do not match our records',
-      html: "<p>If you have recently moved or changed your name, we may have your old information. Change your details then try again.</p><p>If you've never had an exemption from paying NHS costs, we won't have your details.</p>"
+      html: "<p>If you have recently moved or changed your name, we may have your old information. Change your details then try again.</p><p>If you've never had an exemption from paying NHS costs, we will not have your details.</p>"
     }) }}
    
 
@@ -88,8 +93,15 @@
     }) }}
 
     {{ details({
-      summaryText: 'You have a hormone replacement therapy prescription prepayment certificate (HRT PPC)',
-      html: '<p>Our NHS exemption checker service cannot currently check for an HRT PPC exemption. We aim to change this in the future.</p>'
+      summaryText: 'You have an exemption we cannot check',
+      html: '<p>This service cannot currently check if you are entitled to help with health costs because you:</p>
+              <ul>
+                <li>have an HC3 certificate (partial help through Low Income Scheme)</li>
+                <li>have a Hormone Replacement Therapy PPC</li>
+                <li>have a prescription exemption certificate issued by the ministry of defence</li>
+                <li>are entitled to help due to the benefit you are getting</li>
+              </ul>
+              <p>If you want to check if you are entitled to help due to any of these reasons, <a href="https://www.nhsbsa.nhs.uk/check-if-you-have-nhs-exemption">find out more about how to check on our website</a>.</p>'
     }) }}
 
     <h2 class="nhsuk-heading-m">Check if you should be entitled</h2>
