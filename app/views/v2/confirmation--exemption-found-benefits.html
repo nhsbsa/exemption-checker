@@ -50,6 +50,10 @@
         {
           key: { text: 'Date of birth' },
           value: { text: '' | processDateOfBirth() }
+        },
+        {
+          key: { text: "Today's date" },
+          value: { text: 0 | alterTodaysDateByNumberOfMonths }
         }
       ]
     }) }}
@@ -58,24 +62,18 @@
     <h2 class="nhsuk-heading-m">How to get your help</h2>
 
     <h3 class="nhsuk-heading-s">Collecting prescriptions</h3>
-    <p class="nhsuk-body">Pharmacy staff will ask for your exemption details. If you do not have them with you, your
-      pharmacist should tick 'Evidence not seen' on the prescription. They will not charge you.</p>
-    <p class="nhsuk-body">You can show this page as proof today.</p>
+    <p class="nhsuk-body">If you are entitled to free NHS prescriptions due to the benefit you get, mark a line in the box beside the relevant benefit you get on the prescription form.</p>
 
     <h3 class="nhsuk-heading-s">Dental check-ups and treatment</h3>
-    <p class="nhsuk-body">At your dental practice you'll be given a form to fill out.</p>
-    <p class="nhsuk-body">Put a cross (X) in the relevant box and write your certificate number on the form if you:</p>
 
-    <ul class="nhsuk-list nhsuk-list--bullet">
-      <li>have a valid HC2 certificate</li>
-      <li>are pregnant</li>
-      <li>have had a baby in the last 12 months</li>
-    </ul>
+    <p class="nhsuk-body">At your dental practice you'll be given a patient declaration form to fill out.</p>
+    <p class="nhsuk-body">The form will ask why you are entitled to free NHS dental treatment.</p>
+    <p class="nhsuk-body">If you are entitled due to the benefit you get, put a cross (X) in the box beside the relevant benefit you get on the patient declaration form.</p>
+
 
     <p class="nhsuk-body">Your dentist may ask to see proof of your entitlement.</p>
     <p class="nhsuk-body">You can show this page as proof today.</p>
-    <p class="nhsuk-body">Find out what <a href="https://www.nhsbsa.nhs.uk/check-if-you-have-nhs-exemption/maternity-exemption-certificates">help you can get for dental treatment if you have a maternity
-        exemption certificate</a></p>
+
 
     <p class="nhsuk-body"><a href="#">Print this</a></p>
 
