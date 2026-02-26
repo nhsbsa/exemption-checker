@@ -76,6 +76,13 @@
     ]
     }) }}
 
+    {% if data.dwpIsDown === 'true' %}
+      {{ warningCallout({
+        heading: 'Important',
+        html: '<p>We could not check if you’re getting any benefits that entitle you to help with NHS costs. You can try again later or <a href="https://www.nhsbsa.nhs.uk/check-if-youre-eligible-help/help-health-costs-if-you-are-getting-certain-benefits">find out which benefits can give you that help</a>.</p>'
+      }) }}
+    {% endif %}
+
     <!-- Details expanders -->
     <h2 class="nhsuk-heading-m">We cannot find you for one of these reasons</h2>
 
