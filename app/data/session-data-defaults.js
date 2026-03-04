@@ -8,6 +8,8 @@ module.exports = {
     phaseBannerTagText: 'BETA',
     phaseBannerFeedbackLink: 'https://online1.snapsurveys.com/check-my-nhs-exemption-feedback',
 
+    confirmationFeedbackLink: 'https://online1.snapsurveys.com/Interview/7eb8bbc8-17aa-42be-87e1-ecee7aa76ee4',
+
     showHRTPPCRenewalNotice: 'true'
 
 }
