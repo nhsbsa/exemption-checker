@@ -7,19 +7,19 @@
   <div class="nhsuk-grid-column-two-thirds">
 
 
-     {{ panel({
-      titleText: 'We cannot find an exemption certificate with these details'
+    {{ panel({
+    titleText: 'We cannot find an exemption certificate with these details'
     }) }}
 
-     {{ list({
-      title: 'You do not automatically get free',
-      type: 'cross',
-      hidePrefix: true,
-      headingLevel: 2,
-      items: [
-        { html: 'NHS prescriptions' }  ,
-        { html: 'NHS dental check-ups and treatment' }  
-      ]
+    {{ list({
+    title: 'You do not automatically get free',
+    type: 'cross',
+    hidePrefix: true,
+    headingLevel: 2,
+    items: [
+    { html: 'NHS prescriptions' } ,
+    { html: 'NHS dental check-ups and treatment' }
+    ]
     }) }}
 
     <h2 class="nhsuk-u-visually-hidden">Details you gave</h2>
@@ -27,114 +27,156 @@
     {{ summaryList({
     rows: [
     {
-      key: {
-        text: 'Name'
-      },
-      value: {
-        text: '' | processName()
-      },
-      actions: {
-        items: [{
-            href: 'name',
-            text: 'Change',
-            visuallyHiddenText: 'name'
-          }]
-      }
+    key: {
+    text: 'Name'
+    },
+    value: {
+    text: '' | processName()
+    },
+    actions: {
+    items: [{
+    href: 'name',
+    text: 'Change',
+    visuallyHiddenText: 'name'
+    }]
+    }
     },
     {
-      key: {
-        text: 'Date of birth'
-      },
-      value: {
-        text: '' | processDateOfBirth()
-      },
-      actions: {
-        items: [{
-            href: 'date-of-birth',
-            text: 'Change',
-            visuallyHiddenText: 'date of birth'
-          }]
-      }
+    key: {
+    text: 'Date of birth'
+    },
+    value: {
+    text: '' | processDateOfBirth()
+    },
+    actions: {
+    items: [{
+    href: 'date-of-birth',
+    text: 'Change',
+    visuallyHiddenText: 'date of birth'
+    }]
+    }
     },
     {
-      key: {
-        text: 'Postcode'
-      },
-      value: {
-        text: data.addressPostcode or 'E4 9RT'
-      },
-      actions: {
-        items: [
-          {
-            href: 'postcode',
-            text: 'Change',
-            visuallyHiddenText: 'contact details'
-          }
-        ]
-      }
+    key: {
+    text: 'Postcode'
+    },
+    value: {
+    text: data.addressPostcode or 'E4 9RT'
+    },
+    actions: {
+    items: [
+    {
+    href: 'postcode',
+    text: 'Change',
+    visuallyHiddenText: 'contact details'
+    }
+    ]
+    }
     }
     ]
     }) }}
 
     {% if data.dwpIsDown === 'true' %}
-      {{ warningCallout({
-        heading: 'Important',
-        html: '<p>We could not check if you’re getting any benefits that entitle you to help with NHS costs. You can try again later or <a href="https://www.nhsbsa.nhs.uk/check-if-youre-eligible-help/help-health-costs-if-you-are-getting-certain-benefits">find out which benefits can give you that help</a>.</p>'
-      }) }}
+    {{ warningCallout({
+    heading: 'Important',
+    html: '<p>We could not check if you’re getting any benefits that entitle you to help with NHS costs. You can try
+      again later or <a
+        href="https://www.nhsbsa.nhs.uk/check-if-youre-eligible-help/help-health-costs-if-you-are-getting-certain-benefits">find
+        out which benefits can give you that help</a>.</p>'
+    }) }}
     {% endif %}
 
     <!-- Details expanders -->
     <h2 class="nhsuk-heading-m">We cannot find you for one of these reasons</h2>
 
+    <ul class="nhsuk-list nhsuk-list--bullet">
+      <li><strong>The details you gave do not match our records</strong><br>If you have recently moved or changed your name, we may have your old information. Change your details
+      then try again. If you've never had an exemption from paying NHS costs, we won't have your details.</li>
+    </ul>
+
+
+    <ul class="nhsuk-list nhsuk-list--bullet">
+      <li><strong>You've recently become entitled to help with NHS costs</strong><br>We may not have all your details yet. Our records can take up to 6 weeks to update.</li>
+    </ul>
+
+  <ul class="nhsuk-list nhsuk-list--bullet">
+      <li><strong>You're no longer entitled to help with NHS costs</strong><br>Your eligibility for free NHS treatment may have ended.</li>
+    </ul>
+
+     <ul class="nhsuk-list nhsuk-list--bullet">
+      <li><strong>Your prescription prepayment certificate (PPC) has expired</strong><br>You can <a target="_blank" class="nhsuk-link"
+        href="https://buy-prescription-prepayment-certificate.nhsbsa.nhs.uk/start">buy another PPC online</a>. A PPC lets you get as many NHS prescriptions as you need for a set price. If you regularly pay prescription charges, a PPC could save you money.</li>
+    </ul>
+
+      <ul class="nhsuk-list nhsuk-list--bullet">
+      <li><strong>You have an exemption we cannot check</strong><br>This service cannot currently check if you are entitled to help with health costs because you:</p>
+    <ul>
+      <li>have a certificate for partial help with health costs (HC3)</li>
+      <li>have a prescription exemption certificate issued by Veterans UK</li>
+    </ul><br>
+    <p>If you want to check if you are entitled to help due to any of these reasons, <a
+        href="https://www.nhsbsa.nhs.uk/check-if-you-have-nhs-exemption">find out more about how to check on our
+        website</a>.</li>
+    </ul>
+
+    <!-- {{ details({
+    summaryText: 'The details you gave do not match our records',
+    html: "<p>If you have recently moved or changed your name, we may have your old information. Change your details
+      then try again.</p>
+    <p>If you've never had an exemption from paying NHS costs, we won't have your details.</p>"
+    }) }}
+
 
     {{ details({
-      summaryText: 'The details you gave do not match our records',
-      html: "<p>If you have recently moved or changed your name, we may have your old information. Change your details then try again.</p><p>If you've never had an exemption from paying NHS costs, we won't have your details.</p>"
-    }) }}
-   
-
-    {{ details({
-      summaryText: "You've recently become entitled to help with NHS costs",
-      html: '<p>We may not have all your details yet. Our records can take up to 6 weeks to update.</p>'
-    }) }}
-   
-    {{ details({
-      summaryText: "You're no longer entitled to help with NHS costs",
-      html: '<p>Your eligibility for free NHS treatment may have ended.</p>'
+    summaryText: "You've recently become entitled to help with NHS costs",
+    html: '<p>We may not have all your details yet. Our records can take up to 6 weeks to update.</p>'
     }) }}
 
-    
     {{ details({
-      summaryText: 'Your prescription prepayment certificate (PPC) has expired',
-      html: '<p>You can <a target="_blank" class="nhsuk-link" href="https://buy-prescription-prepayment-certificate.nhsbsa.nhs.uk/start">buy another PPC online</a>.</p><p>A PPC lets you get as many NHS prescriptions as you need for a set price. If you regularly pay prescription charges, a PPC could save you money.</p>'
+    summaryText: "You're no longer entitled to help with NHS costs",
+    html: '<p>Your eligibility for free NHS treatment may have ended.</p>'
     }) }}
 
 
     {{ details({
-      summaryText: 'You have an exemption we cannot check',
-      html: '<p>This service cannot currently check if you are entitled to help with health costs because you:</p>
-              <ul>
-                <li>have a certificate for partial help with health costs (HC3)</li>
-                <li>have a prescription exemption certificate issued by Veterans UK</li>
-              </ul>
-              <p>If you want to check if you are entitled to help due to any of these reasons, <a href="https://www.nhsbsa.nhs.uk/check-if-you-have-nhs-exemption">find out more about how to check on our website</a>.</p>'
+    summaryText: 'Your prescription prepayment certificate (PPC) has expired',
+    html: '<p>You can <a target="_blank" class="nhsuk-link"
+        href="https://buy-prescription-prepayment-certificate.nhsbsa.nhs.uk/start">buy another PPC online</a>.</p>
+    <p>A PPC lets you get as many NHS prescriptions as you need for a set price. If you regularly pay prescription
+      charges, a PPC could save you money.</p>'
     }) }}
 
-    
+
+    {{ details({
+    summaryText: 'You have an exemption we cannot check',
+    html: '<p>This service cannot currently check if you are entitled to help with health costs because you:</p>
+    <ul>
+      <li>have a certificate for partial help with health costs (HC3)</li>
+      <li>have a prescription exemption certificate issued by Veterans UK</li>
+    </ul>
+    <p>If you want to check if you are entitled to help due to any of these reasons, <a
+        href="https://www.nhsbsa.nhs.uk/check-if-you-have-nhs-exemption">find out more about how to check on our
+        website</a>.</p>'
+    }) }} -->
+
+
 
     <h2 class="nhsuk-heading-m">Could you get help to pay other NHS costs?</h2>
-    <p>Answer a few more questions about your circumstances to check if you could get <a href="https://www.nhsbsa.nhs.uk/nhs-help-health-costs">help to pay other NHS costs</a>.</p>
+    <p>Answer a few more questions about your circumstances to check if you could get <a
+        href="https://www.nhsbsa.nhs.uk/nhs-help-health-costs">help to pay other NHS costs</a>.</p>
 
 
     <h2 class="nhsuk-heading-m">Help us improve this service</h3>
-    <p class="nhsuk-body"><a class="nhsuk-link" href="{{ data.feedbackLink }}" id="finished-survey" target="_blank" rel="noopener">What did you think of this service?<span class="nhsuk-u-visually-hidden"> (Opens in a new tab)</span></a> (Takes 30 seconds)</p>
- 
-    <hr class="nhsuk-section-break" />
+      <p class="nhsuk-body"><a class="nhsuk-link" href="{{ data.feedbackLink }}" id="finished-survey" target="_blank"
+          rel="noopener">What did you think of this service?<span class="nhsuk-u-visually-hidden"> (Opens in a new
+            tab)</span></a> (Takes 30 seconds)</p>
 
-    {{ actionLink({
+      <hr class="nhsuk-section-break" />
+
+      {{ actionLink({
       text: 'Check again',
       href: '/v1/start'
-    }) }}
+      }) }}
 
 
   </div>
